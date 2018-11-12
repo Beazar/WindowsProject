@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WindowsProject.Model
 {
-	class Onderneming : INotifyPropertyChanged
+	public class Onderneming : INotifyPropertyChanged
 	{
 
 		private string _naam;

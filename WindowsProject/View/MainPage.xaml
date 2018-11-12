@@ -57,8 +57,10 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-
         </SplitView.Pane>
+        <SplitView.Content>
+            <ContentControl x:Name="mainContent" Content="{Binding CurrentData}" ContentTemplate="{Binding CurrentData.Template}"/>
+        </SplitView.Content>
         
         
     </SplitView>
