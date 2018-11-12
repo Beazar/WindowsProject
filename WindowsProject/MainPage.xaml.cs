@@ -25,6 +25,13 @@ namespace WindowsProject
         public MainPage()
         {
             this.InitializeComponent();
+
+            if (Frame.CanGoBack)
+            {
+                Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = Windows.UI.Core.AppViewBackButtonVisibility.Visible;
+            }
         }
+
+
     }
 }
