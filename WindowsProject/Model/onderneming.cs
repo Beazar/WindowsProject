@@ -34,7 +34,7 @@ namespace WindowsProject.Model
 
 
         private string _beschrijving;
-        public string Beschrjving
+        public string Beschrijving
         {
             get { return _beschrijving; }
             set { _beschrijving = value; RaisePropertyChanged(); }
@@ -63,6 +63,11 @@ namespace WindowsProject.Model
             _beschrijving = beschrijving;
             _postcode = postcode;
             _categorie = categorie;
+        }
+
+        public Onderneming()
+        {
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
