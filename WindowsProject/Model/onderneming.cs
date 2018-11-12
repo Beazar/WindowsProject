@@ -32,14 +32,21 @@ namespace WindowsProject.Model
 			set { _plaats = value; RaisePropertyChanged(); }
 		}
 
-		private int _postcode;
+
+        private string _beschrijving;
+        public string Beschrjving
+        {
+            get { return _beschrijving; }
+            set { _beschrijving = value; RaisePropertyChanged(); }
+        }
+
+        private int _postcode;
 		public int Postcode
 		{
 			get { return _postcode; }
 			set { _postcode = value; RaisePropertyChanged(); }
 		}
-
-
+        
 
 		private string _categorie;
 		public string Categorie
@@ -48,8 +55,17 @@ namespace WindowsProject.Model
 			set { _naam = value; RaisePropertyChanged(); }
 		}
 
+        public Onderneming(string naam, string adres, string plaats, string beschrijving, int postcode, string categorie)
+        {
+            _naam = naam;
+            _adres = adres;
+            _plaats = plaats;
+            _beschrijving = beschrijving;
+            _postcode = postcode;
+            _categorie = categorie;
+        }
 
-		public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
 		protected void RaisePropertyChanged([CallerMemberName] string propertyName = "")
 		{
