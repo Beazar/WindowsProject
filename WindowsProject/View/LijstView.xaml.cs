@@ -14,15 +14,15 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 
+
 namespace WindowsProject.View
 {
 
-    public sealed partial class MainPage : UserControl
+    public sealed partial class LijstView : UserControl
     {
-        public MainPage()
+        public LijstView()
         {
             this.InitializeComponent();
         }
-
     }
 }

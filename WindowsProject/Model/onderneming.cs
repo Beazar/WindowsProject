@@ -52,7 +52,7 @@ namespace WindowsProject.Model
 		public string Categorie
 		{
 			get { return _categorie; }
-			set { _naam = value; RaisePropertyChanged(); }
+			set { _categorie = value; RaisePropertyChanged(); }
 		}
 
         public Onderneming(string naam, string adres, string plaats, string beschrijving, int postcode, string categorie)

@@ -3,15 +3,15 @@ using WindowsProject.Model;
 
 namespace WindowsProject.ViewModel
 {
-    public class OndernemingenViewModel : ViewModelBase
+    public class LijstViewModel : ViewModelBase
     {
-        public ObservableCollection<Onderneming> ondernemingen { get; set; }
+        public ObservableCollection<Onderneming> Ondernemingen { get; set; }
 
         public RelayCommand SaveOndernemingCommand { get; set; }
 
-        public OndernemingenViewModel()
+        public LijstViewModel()
         {
-            this.ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.ondernemingen);
+            this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen);
             SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
         }
 

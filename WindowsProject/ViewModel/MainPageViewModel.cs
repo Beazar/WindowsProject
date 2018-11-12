@@ -13,6 +13,8 @@ namespace WindowsProject.ViewModel
 
         public MainPageViewModel()
         {
+            Debug.Write("test");
+            ShowOndernemingen(); //toon de ondernemingen direct
             AllOndernemingenCommand = new RelayCommand(_ => ShowOndernemingen());
         }
 
@@ -25,7 +27,7 @@ namespace WindowsProject.ViewModel
 
         private void ShowOndernemingen()
         {
-            CurrentData = new OndernemingenViewModel();
+            CurrentData = new LijstViewModel();
             Debug.WriteLine("ShowOndernemingen called");
         }
 
