@@ -15,6 +15,11 @@ namespace WindowsProject.ViewModel
             SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
         }
 
+        public LijstViewModel(string filter)
+        {
+            this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.FindAll(o => o.Categorie == filter));
+        }
+
         private void SaveOnderneming(object p)
         {
             //this.ondernemingen.Add(new Onderneming { Naam = p.ToString(), Categorie =})

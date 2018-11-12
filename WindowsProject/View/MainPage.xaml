@@ -20,37 +20,37 @@
                         <SymbolIcon Symbol="57619" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Button>
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding RestaurantsCommand}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Restaurants" Padding="30"></TextBlock>
                         <SymbolIcon Symbol="57619" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Button>
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding BarsCommand}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Bars" Padding="30"></TextBlock>
                         <SymbolIcon Symbol="57619" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Button>
-                <Button  HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100">
+                <Button  HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding KledingCommand}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Kleding" Padding="30"></TextBlock>
                         <SymbolIcon Symbol="57619" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Button>
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding OvernachtingCommand}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Overnachting" Padding="30"></TextBlock>
                         <SymbolIcon Symbol="57619" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Button>
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding KappersCommand}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Kappers" Padding="30"></TextBlock>
                         <SymbolIcon Symbol="57707" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Button>
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding AndereCommand}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Andere" Padding="30" HorizontalAlignment="Stretch" Height="80" Margin="0,0,0,0" VerticalAlignment="Top"></TextBlock>
                         <SymbolIcon Symbol="57707" HorizontalAlignment="Right"/>
