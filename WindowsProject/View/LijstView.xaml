@@ -8,9 +8,18 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-
+    
     <ScrollViewer>
         <StackPanel>
+            <AutoSuggestBox PlaceholderText="Search" 
+                            QueryIcon="Find" Width="200" 
+                            Text="{Binding Zoek, Mode=TwoWay}"
+                            TextChanged="AutoSuggestBox_TextChanged"
+                            Padding="0,0,20,0"/>
+
+
+            
+            <StackPanel>
             <ListView ItemsSource="{Binding Ondernemingen}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -22,6 +31,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+        </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

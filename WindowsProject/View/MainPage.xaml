@@ -7,8 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     >
-
-    <SplitView DisplayMode="CompactInline" IsPaneOpen="True" OpenPaneLength="296" CompactPaneLength="50">
+    <StackPanel>
+        
+        <SplitView DisplayMode="CompactInline" IsPaneOpen="True" OpenPaneLength="296" CompactPaneLength="50">
         <SplitView.PaneBackground>
             <SolidColorBrush Color="DarkOliveGreen" Opacity=".6"></SolidColorBrush>
         </SplitView.PaneBackground>
@@ -63,4 +64,5 @@
         </SplitView.Content>
                 
     </SplitView>
+    </StackPanel>
 </UserControl>
