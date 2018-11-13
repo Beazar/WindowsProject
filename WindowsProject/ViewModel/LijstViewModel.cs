@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using WindowsProject.Model;
 
 namespace WindowsProject.ViewModel
@@ -17,7 +18,7 @@ namespace WindowsProject.ViewModel
 
         public LijstViewModel(string filter)
         {
-            this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.FindAll(o => o.Categorie == filter));
+            this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.Where(o => o.Categorie == filter));
         }
 
         private void SaveOnderneming(object p)
