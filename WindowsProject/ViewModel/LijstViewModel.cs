@@ -8,7 +8,15 @@ namespace WindowsProject.ViewModel
 {
     public class LijstViewModel : ViewModelBase
     {
-        public ObservableCollection<Onderneming> Ondernemingen { get; set; } //inotifycollectionchanged
+
+        private ObservableCollection<Onderneming> _ondernemingen;
+
+        public ObservableCollection<Onderneming> Ondernemingen
+        {
+            get { return _ondernemingen; }
+            set { _ondernemingen = value; RaisePropertyChanged(); }
+        }
+
 
         public RelayCommand SaveOndernemingCommand { get; set; }
         public RelayCommand ZoekCommand { get; set; }
@@ -18,7 +26,7 @@ namespace WindowsProject.ViewModel
         public string Zoek
         {
             get { return _zoek; }
-            set { _zoek = value; Debug.Write("zoek ingesteld"); RaisePropertyChanged(); ZoekOnderneming(_zoek); }
+            set { _zoek = value;  ZoekOnderneming(_zoek); RaisePropertyChanged(); }
         }
 
 
@@ -31,7 +39,7 @@ namespace WindowsProject.ViewModel
 
         private void ZoekOnderneming(string zoek)
         {
-            Debug.Write("Zoek onderneming ogperopen\n");
+            Debug.Write("Zoek onderneming opgeroepen\n");
             Debug.Write(zoek);
             this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.Where(o => o.Naam.IndexOf(zoek, StringComparison.OrdinalIgnoreCase) >= 0));
             
