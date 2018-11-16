@@ -20,7 +20,7 @@
 
             
             <StackPanel>
-            <ListView ItemsSource="{Binding Ondernemingen}">
+            <ListView x:Name="lv" ItemsSource="{Binding Ondernemingen}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>

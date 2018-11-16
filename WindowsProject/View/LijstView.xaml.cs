@@ -25,6 +25,7 @@ namespace WindowsProject.View
             this.InitializeComponent();
         }
 
+
         private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             

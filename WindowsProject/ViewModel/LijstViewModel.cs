@@ -32,6 +32,7 @@ namespace WindowsProject.ViewModel
 
         public LijstViewModel()
         {
+            DummyDataSource.loadData();
             this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen);
             SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
             ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));

@@ -11,8 +11,39 @@ namespace WindowsProject.Model
 {
 	public class Onderneming : INotifyPropertyChanged
 	{
+        private int _ondernemingID;
+        public int OndernemingID
+        {
+            get { return _ondernemingID; }
+            set { _ondernemingID = value; RaisePropertyChanged(); }
+        }
+        public string TelefoonNummer
+        {
+            get { return _telefoonNummer; }
+            set { _telefoonNummer = value; RaisePropertyChanged(); }
+        }
+        public string Website
+        {
+            get { return _website; }
+            set { _website = value; RaisePropertyChanged(); }
+        }
+        public IList<string> Afbeeldingen
+        {
+            get { return _afbeeldingen; }
+            set { _afbeeldingen = value;RaisePropertyChanged(); }
+        }
 
-		private string _naam;
+        public virtual ICollection<Event> Events
+        {
+            get { return _events; }
+            set { _events = value; RaisePropertyChanged(); }
+        }
+        public virtual ICollection<Promotie> Promoties
+        {
+            get { return _promoties; }
+            set { _promoties = value; RaisePropertyChanged(); }
+        }
+        private string _naam;
 		public string Naam
 		{
 			get { RaisePropertyChanged(); return _naam;  }
@@ -41,8 +72,8 @@ namespace WindowsProject.Model
             set { _beschrijving = value; RaisePropertyChanged(); }
         }
 
-        private int _postcode;
-		public int Postcode
+        private string _postcode;
+		public string Postcode
 		{
 			get { return _postcode; }
 			set { _postcode = value; RaisePropertyChanged(); }
@@ -50,13 +81,20 @@ namespace WindowsProject.Model
         
 
 		private string _categorie;
-		public string Categorie
+        private string _telefoonNummer;
+        private string _website;
+        private IList<string> _afbeeldingen;
+        private ICollection<Event> _events;
+        private ICollection<Promotie> _promoties;
+
+        public string Categorie
 		{
 			get { return _categorie; }
 			set { _categorie = value; RaisePropertyChanged(); }
 		}
 
-        public Onderneming(string naam, string adres, string plaats, string beschrijving, int postcode, string categorie)
+        public Onderneming(string naam, string adres, string plaats, string beschrijving, string postcode,
+            string categorie, string telefoonNummer, string website, IList<string> afbeeldingen)
         {
             _naam = naam;
             _adres = adres;
@@ -64,6 +102,9 @@ namespace WindowsProject.Model
             _beschrijving = beschrijving;
             _postcode = postcode;
             _categorie = categorie;
+            _telefoonNummer = telefoonNummer;
+            _website = website;
+            _afbeeldingen = afbeeldingen;
         }
 
         public Onderneming()
