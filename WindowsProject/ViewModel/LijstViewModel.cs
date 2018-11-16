@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using WindowsProject.Model;
 
 namespace WindowsProject.ViewModel
@@ -32,24 +35,61 @@ namespace WindowsProject.ViewModel
 
         public LijstViewModel()
         {
-            DummyDataSource.loadData();
-            this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen);
+            // DummyDataSource.loadData();
+            //this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen);
+            loadData();
             SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
             ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));
         }
+        public LijstViewModel(string filter)
+        {
+            loadDataCategorie(filter);
+            SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
+            ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));
+            //this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.Where(o => o.Categorie == filter));
+        }
+        private async void loadData()
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/"));
+            var lst = JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json);
+            this.Ondernemingen = lst;
+        }
+        private async void loadDataCategorie(string filter)
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/"));
+            var lst = JsonConvert.DeserializeObject<List<Onderneming>>(json);
+            
+            lst = lst.Where(o => o.Categorie == filter).ToList();
+            this.Ondernemingen = new ObservableCollection<Onderneming>(lst);
+            //foreach (Onderneming o in lst) {
+            //    this.Ondernemingen.Add(o);
+            //        }
+        }
+        private async void loadDataZoek(string zoek)
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/"));
+            var lst = JsonConvert.DeserializeObject<List<Onderneming>>(json);
 
+            lst = lst.Where(o => o.Naam.IndexOf(zoek, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            this.Ondernemingen = new ObservableCollection<Onderneming>(lst);
+            //foreach (Onderneming o in lst)
+            //{
+            //    this.Ondernemingen.Add(o);
+            //}
+        }
         private void ZoekOnderneming(string zoek)
         {
             Debug.Write("Zoek onderneming opgeroepen\n");
             Debug.Write(zoek);
-            this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.Where(o => o.Naam.IndexOf(zoek, StringComparison.OrdinalIgnoreCase) >= 0));
-            
+            //this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.Where(o => o.Naam.IndexOf(zoek, StringComparison.OrdinalIgnoreCase) >= 0));
+            //this.Ondernemingen = (ObservableCollection<Onderneming>)Ondernemingen.Where(o => o.Naam.IndexOf(zoek, StringComparison.OrdinalIgnoreCase) >= 0);
+            loadDataZoek(zoek);
         }
 
-        public LijstViewModel(string filter)
-        {
-            this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.Where(o => o.Categorie == filter));
-        }
+        
 
         private void SaveOnderneming(object p)
         {

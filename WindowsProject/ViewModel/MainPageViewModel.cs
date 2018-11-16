@@ -31,7 +31,7 @@ namespace WindowsProject.ViewModel
 
         private void showKappers()
         {
-            CurrentData = new LijstViewModel("Kappers");
+            CurrentData = new LijstViewModel("Kapper");
         }
 
         private void showKleding()
@@ -51,12 +51,12 @@ namespace WindowsProject.ViewModel
 
         private void showBars()
         {
-            CurrentData = new LijstViewModel("Bars");
+            CurrentData = new LijstViewModel("Bar");
         }
 
         private void showRestaurants()
         {
-            CurrentData = new LijstViewModel("Restaurants");
+            CurrentData = new LijstViewModel("Restaurant");
         }
 
         private ViewModelBase _currentData;
