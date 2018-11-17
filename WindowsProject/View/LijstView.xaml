@@ -17,18 +17,16 @@
                             TextChanged="AutoSuggestBox_TextChanged"
                             Padding="0,0,20,0"/>
 
-
-            
             <StackPanel>
             <ListView x:Name="lv" ItemsSource="{Binding Ondernemingen}">
                 <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Naam}"></TextBlock>
-                            <TextBlock Text="{Binding Categorie}"></TextBlock>
-                            <TextBlock Text="{Binding Adres}" ></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
+                        <DataTemplate x:Name="TripleLineDataTemplate">
+                            <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}">
+                                <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
+                                <TextBlock Text="{Binding Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
+                                <TextBlock Text="{Binding Adres}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
