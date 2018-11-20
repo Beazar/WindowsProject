@@ -12,16 +12,17 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using WindowsProject.ViewModel;
 
 namespace WindowsProject.View
 {
 
-    public sealed partial class MainPage : UserControl
+    public sealed partial class MainPage : Page
     {
         public MainPage()
         {
             this.InitializeComponent();
+            this.DataContext = new MainPageViewModel();
         }
 
     }
