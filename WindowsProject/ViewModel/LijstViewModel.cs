@@ -14,6 +14,23 @@ namespace WindowsProject.ViewModel
 
         private ObservableCollection<Onderneming> _ondernemingen;
 
+        private Onderneming _selectedOnderneming { get; set; }
+        public Onderneming SelectedOnderneming {
+            get { return _selectedOnderneming; }
+            set
+            {
+                if (_selectedOnderneming != value)
+                {
+                    _selectedOnderneming = value;
+                }
+            }
+            }
+
+        private void HandleSelectedItem()
+        {
+
+        }
+
         public ObservableCollection<Onderneming> Ondernemingen
         {
             get { return _ondernemingen; }

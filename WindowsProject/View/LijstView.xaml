@@ -18,10 +18,10 @@
                             Padding="0,0,20,0"/>
 
             <StackPanel>
-            <ListView x:Name="lv" ItemsSource="{Binding Ondernemingen}">
+            <ListView x:Name="lv" ItemsSource="{Binding Ondernemingen}" SelectedItem="{Binding SelectedOnderneming}">
                 <ListView.ItemTemplate>
                         <DataTemplate x:Name="TripleLineDataTemplate">
-                            <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}">
+                            <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}" >
                                 <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
                                 <TextBlock Text="{Binding Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
                                 <TextBlock Text="{Binding Adres}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
