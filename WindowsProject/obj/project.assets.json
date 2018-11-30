@@ -10930,24 +10930,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sander Beazar\\.nuget\\packages\\": {},
+    "C:\\Users\\cottr\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sander Beazar\\Desktop\\WindowsApp\\WindowsProject\\WindowsProject.csproj",
+      "projectUniqueName": "D:\\Hogent\\2018-2019\\OLODs\\Semester 1\\Native Apps II - mobile apps voor Windows\\Project\\WindowsProject\\WindowsProject\\WindowsProject.csproj",
       "projectName": "WindowsProject",
-      "projectPath": "C:\\Users\\Sander Beazar\\Desktop\\WindowsApp\\WindowsProject\\WindowsProject.csproj",
-      "packagesPath": "C:\\Users\\Sander Beazar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sander Beazar\\Desktop\\WindowsApp\\WindowsProject\\obj\\",
+      "projectPath": "D:\\Hogent\\2018-2019\\OLODs\\Semester 1\\Native Apps II - mobile apps voor Windows\\Project\\WindowsProject\\WindowsProject\\WindowsProject.csproj",
+      "packagesPath": "C:\\Users\\cottr\\.nuget\\packages\\",
+      "outputPath": "D:\\Hogent\\2018-2019\\OLODs\\Semester 1\\Native Apps II - mobile apps voor Windows\\Project\\WindowsProject\\WindowsProject\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Sander Beazar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cottr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
