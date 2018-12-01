@@ -12,6 +12,9 @@
         <DataTemplate x:Key="LijstViewModel">
             <view:LijstView/>
         </DataTemplate>
+        <DataTemplate x:Key="DetailViewModel">
+            <view:DetailView/>
+        </DataTemplate>
     </Application.Resources>
 
 </Application>

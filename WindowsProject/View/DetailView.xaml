@@ -11,13 +11,13 @@
     <StackPanel>
         <Image Source="https://www.omnihotels.com/-/media/images/hotels/bospar/restaurants/bospar-omni-parker-house-parkers-restaurant-1170.jpg" Height="105
                " Width="400" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
-        <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
-        <TextBlock Text="{Binding Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
-        <TextBlock Text="{Binding Adres}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
+        <TextBlock Text="{Binding DetailOnderneming.Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
+        <TextBlock Text="{Binding DetailOnderneming.Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
+        <TextBlock Text="{Binding DetailOnderneming.Adres}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
         <TextBlock Text="PROMOTIES" />
-        <ListView x:Name="promoties" ItemsSource="{Binding Promoties}">
+        <ListView x:Name="promoties" ItemsSource="{Binding DetailOnderneming.Promoties}">
             <ListView.ItemTemplate>
-                <DataTemplate x:Name="DoubleLineDataTemplate">
+                <DataTemplate>
                     <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}">
                         <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
                         <TextBlock Text="{Binding EindDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
@@ -26,7 +26,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <TextBlock Text="Events" />
-        <ListView x:Name="events" ItemsSource="{Binding Events}">
+        <ListView x:Name="events" ItemsSource="{Binding DetailOnderneming.Events}">
             <ListView.ItemTemplate>
                 <DataTemplate x:Name="DoubleLineDataTemplate">
                     <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}">

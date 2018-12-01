@@ -13,11 +13,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-
+// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace WindowsProject.View
 {
-
     public sealed partial class LijstView : UserControl
     {
         public LijstView()
@@ -25,10 +24,9 @@ namespace WindowsProject.View
             this.InitializeComponent();
         }
 
-
         private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            
+
         }
     }
 }

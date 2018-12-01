@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsProject.ViewModel
 {
-    class MainPageViewModel : ViewModelBase
+   public class MainPageViewModel : ViewModelBase
     {
         public RelayCommand AllOndernemingenCommand { get; set; }
         public RelayCommand RestaurantsCommand { get; set; }
@@ -16,6 +16,7 @@ namespace WindowsProject.ViewModel
         public RelayCommand AndereCommand { get; set; }
         public RelayCommand KledingCommand { get; set; }
         public RelayCommand KappersCommand { get; set; }
+        public RelayCommand NavigateToDetailCommand { get; set; }
 
         public MainPageViewModel()
         {
@@ -29,34 +30,36 @@ namespace WindowsProject.ViewModel
             KappersCommand = new RelayCommand(_ => showKappers());
         }
 
+
+
         private void showKappers()
         {
-            CurrentData = new LijstViewModel("Kapper");
+            CurrentData = new LijstViewModel(this,"Kapper");
         }
 
         private void showKleding()
         {
-            CurrentData = new LijstViewModel("Kleding");
+            CurrentData = new LijstViewModel(this,"Kleding");
         }
 
         private void showAndere()
         {
-            CurrentData = new LijstViewModel("Andere");
+            CurrentData = new LijstViewModel(this,"Andere");
         }
 
         private void showOvernachting()
         {
-            CurrentData = new LijstViewModel("Overnachting");
+            CurrentData = new LijstViewModel(this,"Overnachting");
         }
 
         private void showBars()
         {
-            CurrentData = new LijstViewModel("Bar");
+            CurrentData = new LijstViewModel(this,"Bar");
         }
 
         private void showRestaurants()
         {
-            CurrentData = new LijstViewModel("Restaurant");
+            CurrentData = new LijstViewModel(this,"Restaurant");
         }
 
         private ViewModelBase _currentData;
@@ -68,8 +71,7 @@ namespace WindowsProject.ViewModel
 
         private void ShowOndernemingen()
         {
-            CurrentData = new LijstViewModel();
-            Debug.WriteLine("ShowOndernemingen called");
+            CurrentData = new LijstViewModel(this);
         }
 
     }

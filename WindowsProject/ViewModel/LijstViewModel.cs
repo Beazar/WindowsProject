@@ -13,22 +13,30 @@ namespace WindowsProject.ViewModel
     {
 
         private ObservableCollection<Onderneming> _ondernemingen;
+        private MainPageViewModel Mp;
 
         private Onderneming _selectedOnderneming { get; set; }
         public Onderneming SelectedOnderneming {
-            get { return _selectedOnderneming; }
+            get { return _selectedOnderneming;  }
             set
             {
                 if (_selectedOnderneming != value)
                 {
                     _selectedOnderneming = value;
+                    RaisePropertyChanged();
+                    HandleSelectedItem();
                 }
             }
             }
 
+        public RelayCommand NavigateToDetail { get; set; }
+
         private void HandleSelectedItem()
         {
-
+            Debug.Write(this.Template);
+            // this.Template = new DetailViewModel(SelectedOnderneming);
+            Mp.CurrentData = new DetailViewModel(SelectedOnderneming);
+            
         }
 
         public ObservableCollection<Onderneming> Ondernemingen
@@ -50,21 +58,23 @@ namespace WindowsProject.ViewModel
         }
 
 
-        public LijstViewModel()
+        public LijstViewModel(MainPageViewModel mp)
         {
             // DummyDataSource.loadData();
             //this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen);
             loadData();
             SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
             ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));
+            this.Mp = mp;
         }
-        public LijstViewModel(string filter)
+        public LijstViewModel(MainPageViewModel mp, string filter)
         {
             loadDataCategorie(filter);
             SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
             ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));
             //this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.Where(o => o.Categorie == filter));
         }
+        
         private async void loadData()
         {
             HttpClient client = new HttpClient();
@@ -105,7 +115,7 @@ namespace WindowsProject.ViewModel
             //this.Ondernemingen = (ObservableCollection<Onderneming>)Ondernemingen.Where(o => o.Naam.IndexOf(zoek, StringComparison.OrdinalIgnoreCase) >= 0);
             loadDataZoek(zoek);
         }
-
+        
         
 
         private void SaveOnderneming(object p)
