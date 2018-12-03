@@ -35,6 +35,20 @@ namespace WindowsProjectService.Controllers
             return Ok(onderneming);
         }
 
+        // GET: api/Ondernemings/gebruikersnaam
+        [HttpGet]
+        [Route("api/Ondernemings/{gebruikersnaam}")]
+        [ResponseType(typeof(Onderneming))]
+        public IHttpActionResult GetOndernemingByGebruikersnaam(string gebruikersnaam)
+        {
+            Onderneming onderneming = db.Ondernemings.Where(x => x.Gebruikersnaam.Equals(gebruikersnaam)).FirstOrDefault();
+            if(onderneming == null)
+            {
+                return NotFound();
+            }
+            return Ok(onderneming);
+        }
+
         // PUT: api/Ondernemings/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutOnderneming(int id, Onderneming onderneming)

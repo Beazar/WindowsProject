@@ -17,6 +17,24 @@ namespace WindowsProject.Model
             get { return _ondernemingID; }
             set { _ondernemingID = value; RaisePropertyChanged(); }
         }
+
+        private string _gebruikersnaam;
+
+        public string Gebruikersnaam
+        {
+            get { return _gebruikersnaam; }
+            set { _gebruikersnaam = value; }
+        }
+
+        private string _wachtwoord;
+
+        public string Wachtwoord
+        {
+            get { return _wachtwoord; }
+            set { _wachtwoord = value; }
+        }
+
+
         public string TelefoonNummer
         {
             get { return _telefoonNummer; }

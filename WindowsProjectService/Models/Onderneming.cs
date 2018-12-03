@@ -16,6 +16,8 @@ namespace WindowsProjectService.Models
         public string Categorie { get; set; }
         public string TelefoonNummer { get; set; }
         public string Website { get; set; }
+        public string Gebruikersnaam { get; set; }
+        public string Wachtwoord { get; set; }
         public IList<string> Afbeeldingen { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
