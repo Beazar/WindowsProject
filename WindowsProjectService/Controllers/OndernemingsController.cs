@@ -36,7 +36,7 @@ namespace WindowsProjectService.Controllers
         }
 
         // GET: api/Ondernemings/gebruikersnaam
-        [HttpGet]
+ /*       [HttpGet]
         [Route("api/Ondernemings/{gebruikersnaam}")]
         [ResponseType(typeof(Onderneming))]
         public IHttpActionResult GetOndernemingByGebruikersnaam(string gebruikersnaam)
@@ -47,7 +47,7 @@ namespace WindowsProjectService.Controllers
                 return NotFound();
             }
             return Ok(onderneming);
-        }
+        } */
 
         // PUT: api/Ondernemings/5
         [ResponseType(typeof(void))]
