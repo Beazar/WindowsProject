@@ -12,44 +12,44 @@ using WindowsProjectService.Models;
 
 namespace WindowsProjectService.Controllers
 {
-    public class OndernemingsController : ApiController
+    public class GebruikersController : ApiController
     {
         private WindowsProjectServiceContext db = new WindowsProjectServiceContext();
 
-        // GET: api/Ondernemings
-        public IQueryable<Onderneming> GetOndernemings()
+        // GET: api/Gebruikers
+        public IQueryable<Gebruiker> GetGebruikers()
         {
-            return db.Ondernemings;
+            return db.Gebruikers;
         }
 
-        // GET: api/Ondernemings/5
-        [ResponseType(typeof(Onderneming))]
-        public IHttpActionResult GetOnderneming(int id)
+        // GET: api/Gebruikers/5
+        [ResponseType(typeof(Gebruiker))]
+        public IHttpActionResult GetGebruiker(int id)
         {
-            Onderneming onderneming = db.Ondernemings.Find(id);
-            if (onderneming == null)
+            Gebruiker gebruiker = db.Gebruikers.Find(id);
+            if (gebruiker == null)
             {
                 return NotFound();
             }
 
-            return Ok(onderneming);
+            return Ok(gebruiker);
         }
 
-        // PUT: api/Ondernemings/5
+        // PUT: api/Gebruikers/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutOnderneming(int id, Onderneming onderneming)
+        public IHttpActionResult PutGebruiker(int id, Gebruiker gebruiker)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != onderneming.OndernemingID)
+            if (id != gebruiker.GebruikerID)
             {
                 return BadRequest();
             }
 
-            db.Entry(onderneming).State = EntityState.Modified;
+            db.Entry(gebruiker).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace WindowsProjectService.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!OndernemingExists(id))
+                if (!GebruikerExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace WindowsProjectService.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Ondernemings
-        [ResponseType(typeof(Onderneming))]
-        public IHttpActionResult PostOnderneming(Onderneming onderneming)
+        // POST: api/Gebruikers
+        [ResponseType(typeof(Gebruiker))]
+        public IHttpActionResult PostGebruiker(Gebruiker gebruiker)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Ondernemings.Add(onderneming);
+            db.Gebruikers.Add(gebruiker);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = onderneming.OndernemingID }, onderneming);
+            return CreatedAtRoute("DefaultApi", new { id = gebruiker.GebruikerID }, gebruiker);
         }
 
-        // DELETE: api/Ondernemings/5
-        [ResponseType(typeof(Onderneming))]
-        public IHttpActionResult DeleteOnderneming(int id)
+        // DELETE: api/Gebruikers/5
+        [ResponseType(typeof(Gebruiker))]
+        public IHttpActionResult DeleteGebruiker(int id)
         {
-            Onderneming onderneming = db.Ondernemings.Find(id);
-            if (onderneming == null)
+            Gebruiker gebruiker = db.Gebruikers.Find(id);
+            if (gebruiker == null)
             {
                 return NotFound();
             }
 
-            db.Ondernemings.Remove(onderneming);
+            db.Gebruikers.Remove(gebruiker);
             db.SaveChanges();
 
-            return Ok(onderneming);
+            return Ok(gebruiker);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace WindowsProjectService.Controllers
             base.Dispose(disposing);
         }
 
-        private bool OndernemingExists(int id)
+        private bool GebruikerExists(int id)
         {
-            return db.Ondernemings.Count(e => e.OndernemingID == id) > 0;
+            return db.Gebruikers.Count(e => e.GebruikerID == id) > 0;
         }
     }
 }

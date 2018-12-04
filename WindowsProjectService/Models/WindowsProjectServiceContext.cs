@@ -26,5 +26,7 @@ namespace WindowsProjectService.Models
         public System.Data.Entity.DbSet<WindowsProjectService.Models.KortingsBon> KortingsBons { get; set; }
 
         public System.Data.Entity.DbSet<WindowsProjectService.Models.Promotie> Promoties { get; set; }
+
+        public System.Data.Entity.DbSet<WindowsProjectService.Models.Gebruiker> Gebruikers { get; set; }
     }
 }

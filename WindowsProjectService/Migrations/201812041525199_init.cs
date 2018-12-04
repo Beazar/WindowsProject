@@ -3,7 +3,7 @@ namespace WindowsProjectService.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -34,6 +34,9 @@ namespace WindowsProjectService.Migrations
                         Categorie = c.String(),
                         TelefoonNummer = c.String(),
                         Website = c.String(),
+                        Gebruikersnaam = c.String(),
+                        Wachtwoord = c.String(),
+                        Afbeeldingen = c.String(),
                     })
                 .PrimaryKey(t => t.OndernemingID);
             
@@ -65,6 +68,16 @@ namespace WindowsProjectService.Migrations
                 .ForeignKey("dbo.Promoties", t => t.OndernemingID, cascadeDelete: true)
                 .Index(t => t.OndernemingID);
             
+            CreateTable(
+                "dbo.Gebruikers",
+                c => new
+                    {
+                        GebruikerID = c.Int(nullable: false, identity: true),
+                        Gebruikersnaam = c.String(),
+                        Wachtwoord = c.String(),
+                    })
+                .PrimaryKey(t => t.GebruikerID);
+            
         }
         
         public override void Down()
@@ -75,6 +88,7 @@ namespace WindowsProjectService.Migrations
             DropIndex("dbo.KortingsBons", new[] { "OndernemingID" });
             DropIndex("dbo.Promoties", new[] { "OndernemingID" });
             DropIndex("dbo.Events", new[] { "OndernemingID" });
+            DropTable("dbo.Gebruikers");
             DropTable("dbo.KortingsBons");
             DropTable("dbo.Promoties");
             DropTable("dbo.Ondernemings");

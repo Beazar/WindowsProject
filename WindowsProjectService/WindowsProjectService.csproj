@@ -187,6 +187,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\GebruikersController.cs" />
     <Compile Include="Controllers\KortingsBonsController.cs" />
     <Compile Include="Controllers\OndernemingsController.cs" />
     <Compile Include="Controllers\PromotiesController.cs" />
@@ -194,12 +195,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811172042191_Initial.cs" />
-    <Compile Include="Migrations\201811172042191_Initial.Designer.cs">
-      <DependentUpon>201811172042191_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201812041525199_init.cs" />
+    <Compile Include="Migrations\201812041525199_init.Designer.cs">
+      <DependentUpon>201812041525199_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Gebruiker.cs" />
     <Compile Include="Models\KortingsBon.cs" />
     <Compile Include="Models\Onderneming.cs" />
     <Compile Include="Models\Promotie.cs" />
@@ -218,8 +220,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811172042191_Initial.resx">
-      <DependentUpon>201811172042191_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812041525199_init.resx">
+      <DependentUpon>201812041525199_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
