@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="WindowsProject.View.SignIn"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsProject.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    MaxWidth="450"
+    MaxHeight="350"
+    mc:Ignorable="d"
+    
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Aanmelden" Padding="7"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Dit account gebruiken" Padding="7"/>
+                <ToggleButton Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="57619" HorizontalAlignment="Left"/>
+                        <StackPanel>
+                            <TextBlock Text="email@email.com" Padding="7,7,7,1"/>
+                            <TextBlock Text="Microsoft Account" Padding="7,1,7,7"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ToggleButton>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Een ander account gebruiken" Padding="7"/>
+                <ToggleButton Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="57619" HorizontalAlignment="Left"/>
+                        <StackPanel>
+                            <TextBlock Text="Microsoft Account" Padding="7,7,7,1"/>
+                            <TextBlock Text="Outlook.com, Hotmail, Live.com, MSN" Padding="7,1,7,7"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ToggleButton>
+            </StackPanel>
+        </StackPanel>
+        <Button Content="Doorgaan" Width="200" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,15,15"/>
+    </Grid>
+</Page>
