@@ -24,6 +24,8 @@ namespace WindowsProject.ViewModel
         public RelayCommand KappersCommand { get; set; }
         public RelayCommand NavigateToDetailCommand { get; set; }
         public RelayCommand SignInCommand { get; set; }
+        public RelayCommand RegistreerGebruikerCommand { get; set; }
+        public RelayCommand RegistreerOndernemerCommand { get; set; }
 
         public MainPageViewModel()
         {
@@ -36,22 +38,68 @@ namespace WindowsProject.ViewModel
             KledingCommand = new RelayCommand(_ => showKleding());
             KappersCommand = new RelayCommand(_ => showKappers());
             SignInCommand = new RelayCommand(async _ => await showLoginAsync());
+            RegistreerGebruikerCommand = new RelayCommand(async _ => await showRegistreerGebruikerAsync());
+            RegistreerOndernemerCommand = new RelayCommand(async _ => await showRegistreerOndernemerAsync());
         }
 
-        private async Task showLoginAsync()
+        private async Task showRegistreerOndernemerAsync()
         {
             CoreApplicationView newView = CoreApplication.CreateNewView();
-            int newViewId = 0;
+            int newViewId = 1;
             await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 Frame frame = new Frame();
-                frame.Navigate(typeof(SignIn), null);
+                frame.Navigate(typeof(RegistreerAlsOndernemer), null);
+                //Page page = new Page();
+
                 Window.Current.Content = frame;
                 // You have to activate the window in order to show it later.
                 Window.Current.Activate();
                 newViewId = ApplicationView.GetForCurrentView().Id;
             });
             bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
+         //   CurrentData = new RegistreerAlsOndernemerViewModel();
+        }
+
+        private async Task showRegistreerGebruikerAsync()
+        {
+            CoreApplicationView newView = CoreApplication.CreateNewView();
+            int newViewId = 1;
+            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                Frame frame = new Frame();
+                frame.Navigate(typeof(RegistreerAlsGebruiker), null);
+                //Page page = new Page();
+
+                Window.Current.Content = frame;
+                // You have to activate the window in order to show it later.
+                Window.Current.Activate();
+                newViewId = ApplicationView.GetForCurrentView().Id;
+            });
+            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
+        }
+
+        private async Task showLoginAsync()
+        {
+            CoreApplicationView newView = CoreApplication.CreateNewView();
+            ApplicationView newAppView = null;
+            int newViewId = ApplicationView.GetApplicationViewIdForWindow(
+    CoreApplication.MainView.CoreWindow);
+            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                /*Frame frame = new Frame();
+                frame.Navigate(typeof(SignIn), null);*/
+                //Page page = new Page();
+                newAppView = ApplicationView.GetForCurrentView();
+                Window.Current.Content = new SignIn();
+                // You have to activate the window in order to show it later.
+                Window.Current.Activate();
+                //newViewId = ApplicationView.GetForCurrentView().Id;
+            });
+            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newAppView.Id,
+    ViewSizePreference.UseHalf,
+    newViewId,
+    ViewSizePreference.UseHalf);
         }
 
         private void showKappers()

@@ -20,16 +20,11 @@ namespace WindowsProject.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SignIn : Page
+    public sealed partial class RegistreerAlsGebruiker : Page
     {
-        public SignIn()
+        public RegistreerAlsGebruiker()
         {
             this.InitializeComponent();
-        }
-
-        private void CheckBox_ContextCanceled(UIElement sender, RoutedEventArgs args)
-        {
-
         }
     }
 }

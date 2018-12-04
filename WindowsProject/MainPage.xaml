@@ -77,13 +77,18 @@
                                 <StackPanel Orientation="Vertical">
                                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding SignInCommand}">
                                         <StackPanel Orientation="Horizontal">
-                                            <SymbolIcon Symbol="AddFriend" HorizontalAlignment="Left"/>
-                                            <TextBlock Text="Sign in" VerticalAlignment="Center" Padding="7"/>
+                                            <!--<SymbolIcon Symbol="AddFriend" HorizontalAlignment="Left"/>-->
+                                            <TextBlock Text="Log in" VerticalAlignment="Center" Padding="7"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding SignUpCommand}">
+                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding RegistreerGebruikerCommand}">
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Sign up" VerticalAlignment="Center"/>
+                                            <TextBlock Text="Registreer als gebruiker" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding RegistreerOndernemerCommand}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Registreer als ondernemer" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>

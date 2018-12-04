@@ -1,8 +1,11 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -20,16 +23,22 @@ namespace WindowsProject.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SignIn : Page
+    public sealed partial class RegistreerAlsOndernemer : Page
     {
-        public SignIn()
+        public RegistreerAlsOndernemer()
         {
             this.InitializeComponent();
         }
 
-        private void CheckBox_ContextCanceled(UIElement sender, RoutedEventArgs args)
+        /*private void Nummer_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-
-        }
+            TextBox txt = (TextBox)sender;
+            if (txt.Text.Contains('.'))
+            {
+                txt.Text = txt.Text.Replace(".", "");
+                txt.SelectionStart = txt.Text.Length;
+            }
+        }*/
+        
     }
 }
