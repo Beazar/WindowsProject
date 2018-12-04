@@ -144,7 +144,7 @@
             </StackPanel>-->
         </SplitView.Pane>
         <SplitView.Content>
-            <ContentControl x:Name="mainContent" Content="{Binding CurrentData}" ContentTemplate="{Binding CurrentData.Template}"/>
+            <ContentControl x:Name="mainContent" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Content="{Binding CurrentData}" ContentTemplate="{Binding CurrentData.Template}" HorizontalAlignment="Stretch"/>
         </SplitView.Content>
 
     </SplitView>

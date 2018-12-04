@@ -5,31 +5,40 @@
     xmlns:local="using:WindowsProject.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
-    <StackPanel>
-        <Image Source="https://www.omnihotels.com/-/media/images/hotels/bospar/restaurants/bospar-omni-parker-house-parkers-restaurant-1170.jpg" Height="105
-               " Width="400" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
-        <TextBlock Text="{Binding DetailOnderneming.Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
-        <TextBlock Text="{Binding DetailOnderneming.Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
-        <TextBlock Text="{Binding DetailOnderneming.Adres}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
-        <TextBlock Text="PROMOTIES" />
-        <ListView x:Name="promoties" ItemsSource="{Binding DetailOnderneming.Promoties}">
+    mc:Ignorable="d" 
+    VerticalAlignment="Stretch" 
+    HorizontalAlignment="Stretch">
+    <StackPanel HorizontalAlignment="Stretch" >
+        <Image Source="https://www.omnihotels.com/-/media/images/hotels/bospar/restaurants/bospar-omni-parker-house-parkers-restaurant-1170.jpg"  HorizontalAlignment="Stretch" Margin="0,0,0,0" MaxHeight="300" MaxWidth="700" VerticalAlignment="Stretch"/>
+        <StackPanel Background="IndianRed" BorderBrush="Black" BorderThickness="2">
+            <TextBlock Text="{Binding DetailOnderneming.Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0" TextAlignment="Center" />
+        </StackPanel>
+        <TextBlock Text="{Binding DetailOnderneming.Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0" TextAlignment="Center"/>
+        <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0" TextAlignment="Center">
+                <Run Text="{Binding DetailOnderneming.Adres}"/>
+                <Run Text=","/>
+                <Run Text="{Binding DetailOnderneming.Postcode}"/>
+                <Run Text="{Binding DetailOnderneming.Plaats}"/>
+        </TextBlock>
+        <ScrollViewer Background="LightGray" MaxHeight="100">
+            <TextBlock Text="{Binding DetailOnderneming.Beschrijving}" TextAlignment="Center"/>
+        </ScrollViewer>
+        <TextBlock Text="PROMOTIES" TextAlignment="Center"/>
+        <ListView x:Name="promoties" ItemsSource="{Binding DetailOnderneming.Promoties}" Background="LightGray" MinHeight="100">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}">
+                    <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}" BorderThickness="1">
                         <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
                         <TextBlock Text="{Binding EindDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Text="Events" />
-        <ListView x:Name="events" ItemsSource="{Binding DetailOnderneming.Events}">
+        <TextBlock Text="EVENTS" TextAlignment="Center" />
+        <ListView x:Name="events" ItemsSource="{Binding DetailOnderneming.Events}" Background="LightGray" MinHeight="100">
             <ListView.ItemTemplate>
                 <DataTemplate x:Name="DoubleLineDataTemplate">
-                    <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}">
+                    <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}" BorderThickness="1">
                         <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
                         <TextBlock Text="{Binding StartDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
                         <TextBlock Text="{Binding EindDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>

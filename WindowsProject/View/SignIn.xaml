@@ -9,7 +9,7 @@
     MaxHeight="350"
     mc:Ignorable="d"
     
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" BorderBrush="Blue" BorderThickness="10">
 
     <Grid>
         <Grid.RowDefinitions>

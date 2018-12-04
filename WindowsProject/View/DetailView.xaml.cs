@@ -23,5 +23,6 @@ namespace WindowsProject.View
         {
             this.InitializeComponent();
         }
+
     }
 }

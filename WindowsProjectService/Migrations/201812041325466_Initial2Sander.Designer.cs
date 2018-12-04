@@ -7,13 +7,13 @@ namespace WindowsProjectService.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Initial : IMigrationMetadata
+    public sealed partial class Initial2Sander : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial2Sander));
         
         string IMigrationMetadata.Id
         {
-            get { return "201811172042191_Initial"; }
+            get { return "201812041325466_Initial2Sander"; }
         }
         
         string IMigrationMetadata.Source
