@@ -259,3 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+.vs/
+WindowsProject/obj/
+WindowsProject/bin/
+WindowsProjectService/obj/
+WindowsProjectService/bin/
