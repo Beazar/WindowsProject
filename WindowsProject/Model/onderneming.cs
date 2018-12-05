@@ -125,6 +125,22 @@ namespace WindowsProject.Model
             _afbeelding = afbeelding;
         }
 
+        public Onderneming(string naam, string adres, string plaats, string beschrijving, string postcode,
+    string categorie, string telefoonNummer, string website, string afbeelding, string gebruikersnaam, string wachtwoord)
+        {
+            _naam = naam;
+            _adres = adres;
+            _plaats = plaats;
+            _beschrijving = beschrijving;
+            _postcode = postcode;
+            _categorie = categorie;
+            _telefoonNummer = telefoonNummer;
+            _website = website;
+            _afbeelding = afbeelding;
+            _wachtwoord = wachtwoord;
+            _gebruikersnaam = gebruikersnaam;
+        }
+
         public Onderneming()
         {
 

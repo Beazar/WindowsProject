@@ -50,6 +50,7 @@ namespace WindowsProject.ViewModel
             {
                 Frame frame = new Frame();
                 frame.Navigate(typeof(RegistreerAlsOndernemer), null);
+                frame.DataContext = new RegistreerAlsOndernemerViewModel();
                 //Page page = new Page();
 
                 Window.Current.Content = frame;

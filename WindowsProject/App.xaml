@@ -19,5 +19,4 @@
             <view:RegistreerAlsOndernemer/>
         </DataTemplate>
     </Application.Resources>
-
 </Application>

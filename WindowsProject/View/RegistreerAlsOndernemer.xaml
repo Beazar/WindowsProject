@@ -26,39 +26,44 @@
                 <TextBox x:Name="OndernemingsNaam" Text="{Binding Naam, Mode=TwoWay}" Margin="25,7,25,7"/>
 
                 <TextBlock Text="Adres:" Margin="25,7,25,7"/>
-                <TextBox x:Name="Adres" PlaceholderText="Straat huisnummer" Margin="25,7,25,7"/>
+                <TextBox x:Name="Adres" Text="{Binding Adres, Mode=TwoWay}" PlaceholderText="Straat + huisnummer" Margin="25,7,25,7"/>
 
                 <TextBlock Text="Plaats:" Margin="25,7,25,7"/>
-                <TextBox x:Name="plaats"  Margin="25,7,25,7"/>
+                <TextBox x:Name="plaats"  Text="{Binding Plaats,  Mode=TwoWay}" Margin="25,7,25,7"/>
 
                 <TextBlock Text="Postcode:" Margin="25,7,25,7"/>
-                <TextBox x:Name="postcode" Margin="25,7,25,7"/>
+                <TextBox x:Name="postcode" Text="{Binding Postcode,  Mode=TwoWay}" Margin="25,7,25,7"/>
 
                 <!--<TextBlock Text="Categorie:" Margin="25,7,25,7"/>-->
-                <ComboBox Header="Categorie:" PlaceholderText="Kies een categorie">
+                <ComboBox Header="Categorie:" SelectedValue="{Binding Categorie,  Mode=TwoWay}" PlaceholderText="Kies een categorie" HorizontalAlignment="Center">
                     <x:String>Restaurant</x:String>
-                    <x:String>Speelgoed</x:String>
-                    <x:String>Kapper</x:String>
                     <x:String>Bar</x:String>
+                    <x:String>Kleding</x:String>
+                    <x:String>Overnachting</x:String>
+                    <x:String>Kapper</x:String>
+                    <x:String>Andere</x:String>
                 </ComboBox>
                 <!--<TextBox x:Name="plaats"  Margin="25,7,25,7"/>-->
 
                 <TextBlock Text="Telefoon:" Margin="25,7,25,7"/>
-                <TextBox x:Name="telefoon"  Margin="25,7,25,7"/>
+                <TextBox x:Name="telefoon" Text="{Binding Telefoon,  Mode=TwoWay}" Margin="25,7,25,7"/>
 
+                <TextBlock Text="URL van jouw afbeelding:" Margin="25,7,25,7"/>
+                <TextBox x:Name="afbeelding" Text="{Binding Afbeelding,  Mode=TwoWay}"  Margin="25,7,25,7"/>
+                
                 <TextBlock Text="Website:" Margin="25,7,25,7"/>
-                <TextBox x:Name="website"  Margin="25,7,25,7"/>
+                <TextBox x:Name="website" Text="{Binding Website,  Mode=TwoWay}" Margin="25,7,25,7"/>
 
                 <TextBlock Text="beschrijving:" Margin="25,7,25,7"/>
                 <RichEditBox x:Name="beschrijving"  Margin="25,7,25,7"/>
 
                 <TextBlock Text="Gebruikersnaam:" Margin="25,7,25,7"/>
-                <TextBox x:Name="gebruikersnaam" Margin="25,7,25,7"/>
+                <TextBox x:Name="gebruikersnaam" Text="{Binding Gebruikersnaam,  Mode=TwoWay}" Margin="25,7,25,7"/>
 
-                <PasswordBox Width="300" Header="Wachtwoord" PlaceholderText="" PasswordChar="•" />
-                <PasswordBox Width="300" Header="Bevestig uw wachtwoord" PlaceholderText="" PasswordChar="•" />
+                <PasswordBox Name="txtPassword" Width="300" Header="Wachtwoord" PlaceholderText="" PasswordChar="•" />
+                <PasswordBox Width="300" Header="Bevestig uw wachtwoord" Password="{Binding Wachtwoord,  Mode=TwoWay}" PlaceholderText="" PasswordChar="•" />
             </StackPanel>
-            <Button Content="Doorgaan" Width="200" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,15,15"/>
+            <Button Content="Doorgaan" Command="{Binding AddOndernemingCommand,  Mode=TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" Width="200" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,15,15"/>
         </Grid>
     </ScrollViewer>
 </Page>

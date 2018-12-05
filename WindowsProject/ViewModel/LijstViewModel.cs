@@ -63,14 +63,14 @@ namespace WindowsProject.ViewModel
             // DummyDataSource.loadData();
             //this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen);
             loadData();
-            SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
+         //   SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
             ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));
             this.Mp = mp;
         }
         public LijstViewModel(MainPageViewModel mp, string filter)
         {
             loadDataCategorie(filter);
-            SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
+         //   SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
             ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));
             //this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.Where(o => o.Categorie == filter));
         }
