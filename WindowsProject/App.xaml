@@ -15,6 +15,9 @@
         <DataTemplate x:Key="DetailViewModel">
             <view:DetailView/>
         </DataTemplate>
+        <DataTemplate x:Key="RegistreerAlsOndernemerViewModel">
+            <view:RegistreerAlsOndernemer/>
+        </DataTemplate>
     </Application.Resources>
 
 </Application>

@@ -5,32 +5,54 @@
     xmlns:local="using:WindowsProject.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    MaxWidth="450"
-    MaxHeight="350"
+    MaxWidth="350"
+    MaxHeight="250"
     mc:Ignorable="d"
     
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" BorderBrush="Blue" BorderThickness="10">
+
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0">
+            <TextBlock Text="Aanmelden" Padding="7"/>
+            <TextBlock Text="Gebruikersnaam:" Padding="7"/>
+            <TextBox PlaceholderText="vb. Jonas"/>
+            <TextBlock Text="Wachtwoord:" Padding="7"/>
+            <TextBox/>
+        </StackPanel>
+        <Button Content="Doorgaan" Width="200" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,15,15"/>
+        <!--
         <StackPanel Orientation="Vertical" Grid.Row="0">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Aanmelden" Padding="7"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Dit account gebruiken" Padding="7"/>
-                <ToggleButton Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
-                    <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="57619" HorizontalAlignment="Left"/>
-                        <StackPanel>
-                            <TextBlock Text="email@email.com" Padding="7,7,7,1"/>
-                            <TextBlock Text="Microsoft Account" Padding="7,1,7,7"/>
+                <ListBox>
+                    <ToggleButton Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="57619" HorizontalAlignment="Left"/>
+                            <StackPanel>
+                                <TextBlock Text="email@outlook.com" Padding="7,7,7,1"/>
+                                <TextBlock Text="Microsoft Account" Padding="7,1,7,7"/>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                </ToggleButton>
+                    </ToggleButton>
+                    <ToggleButton Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="57619" HorizontalAlignment="Left"/>
+                            <StackPanel>
+                                <TextBlock Text="email@gmail.com" Padding="7,7,7,1"/>
+                                <TextBlock Text="Google Account" Padding="7,1,7,7"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ToggleButton>
+                </ListBox>
             </StackPanel>
             <StackPanel>
                 <TextBlock Text="Een ander account gebruiken" Padding="7"/>
@@ -45,6 +67,6 @@
                 </ToggleButton>
             </StackPanel>
         </StackPanel>
-        <Button Content="Doorgaan" Width="200" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,15,15"/>
+        <Button Content="Doorgaan" Width="200" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,15,15"/>-->
     </Grid>
 </Page>
