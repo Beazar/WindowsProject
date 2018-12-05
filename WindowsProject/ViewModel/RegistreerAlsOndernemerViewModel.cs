@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -40,7 +41,7 @@ namespace WindowsProject.ViewModel
             set { _postcode = value; RaisePropertyChanged(); }
         }
 
-        private string _gebruikersnaam = "user";
+        private string _gebruikersnaam;
 
         public string Gebruikersnaam
         {
@@ -128,11 +129,13 @@ namespace WindowsProject.ViewModel
             AddOndernemingCommand = new RelayCommand(param => maakOndernemingAan((PasswordBox)param));
         }
 
-        private void maakOndernemingAan(object parameter)
+        private async void maakOndernemingAan(object parameter)
         {
             var passwordBox = parameter as PasswordBox;
             Wachtwoord = passwordBox.Password;
             var CreatedOnderneming = new Onderneming(Naam, Adres, Plaats, Beschrijving, Postcode, Categorie, Telefoon, Website, Afbeelding, Gebruikersnaam, Wachtwoord);
+            HttpClient client = new HttpClient();
+            var json = await client.PostAsJsonAsync(new Uri("http://localhost:52974/api/ondernemings/"), CreatedOnderneming);
 
         }
 
@@ -159,21 +162,25 @@ namespace WindowsProject.ViewModel
             HtmlWeb web = new HtmlWeb();
             var doc = await web.LoadFromWebAsync(url);
             //var doc = web.Load(@"https://www2.unizo.be/graydon_zoek.jsp?dry=1&btw=0895478066");
-            Naam = doc.DocumentNode.SelectSingleNode("//*[@id='full']/h1").InnerHtml.Substring(7);
+            Naam = doc.DocumentNode.SelectSingleNode("//*[@id='full']/h1").InnerHtml.Substring(7).ToLower();
             var text = doc.DocumentNode.SelectSingleNode("//*[@id='full']/article").InnerHtml;
             string toBeSearched = "Adres: ";
             string toBeSearched2 = "<br>Juri";
             int start = text.IndexOf(toBeSearched) + toBeSearched.Length;
             int end = text.IndexOf(toBeSearched2);
+
             string code = text.Substring(start, end - start);
-            var stringarr = code.Split("-");
-            Adres = stringarr.First();
-            stringarr.Last().Trim();
-            Postcode = stringarr.Last().Substring(1, 5);
-            var stringarr2 = stringarr.Last().Split(" ");
-            var plaats = stringarr2.Last();
-            var plaatsarr = plaats.Split('\\');
-            Plaats = plaatsarr.First();
+            if(code != null && code != "" && code!= " -  \n\t")
+            {
+                var stringarr = code.Split("-");
+                Adres = stringarr.First().ToLower();
+                stringarr.Last().Trim();
+                Postcode = stringarr.Last().Substring(1, 5);
+                var stringarr2 = stringarr.Last().Split(" ");
+                var plaatstemp = stringarr2.Last();
+                Plaats = plaatstemp.Substring(0, (plaatstemp.Length - 2)).ToLower();
+            }
+
         }
 
     }
