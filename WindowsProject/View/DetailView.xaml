@@ -9,7 +9,7 @@
     VerticalAlignment="Stretch" 
     HorizontalAlignment="Stretch">
     <StackPanel HorizontalAlignment="Stretch" >
-        <Image Source="https://www.omnihotels.com/-/media/images/hotels/bospar/restaurants/bospar-omni-parker-house-parkers-restaurant-1170.jpg"  HorizontalAlignment="Stretch" Margin="0,0,0,0" MaxHeight="300" MaxWidth="700" VerticalAlignment="Stretch"/>
+        <Image Source="{Binding DetailOnderneming.Afbeelding}"  HorizontalAlignment="Stretch" Margin="0,0,0,0" MaxHeight="300" MaxWidth="700" VerticalAlignment="Stretch"/>
         <StackPanel Background="IndianRed" BorderBrush="Black" BorderThickness="2">
             <TextBlock Text="{Binding DetailOnderneming.Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0" TextAlignment="Center" />
         </StackPanel>

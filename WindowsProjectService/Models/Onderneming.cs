@@ -18,7 +18,7 @@ namespace WindowsProjectService.Models
         public string Website { get; set; }
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
-        public string Afbeeldingen { get; set; }
+        public string Afbeelding { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
         public virtual ICollection<Promotie> Promoties { get; set; }

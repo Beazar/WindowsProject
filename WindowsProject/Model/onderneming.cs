@@ -45,10 +45,10 @@ namespace WindowsProject.Model
             get { return _website; }
             set { _website = value; RaisePropertyChanged(); }
         }
-        public IList<string> Afbeeldingen
+        public string Afbeelding
         {
-            get { return _afbeeldingen; }
-            set { _afbeeldingen = value;RaisePropertyChanged(); }
+            get { return _afbeelding; }
+            set { _afbeelding = value;RaisePropertyChanged(); }
         }
 
         public virtual ICollection<Event> Events
@@ -101,7 +101,7 @@ namespace WindowsProject.Model
 		private string _categorie;
         private string _telefoonNummer;
         private string _website;
-        private IList<string> _afbeeldingen;
+        private string _afbeelding;
         private ICollection<Event> _events;
         private ICollection<Promotie> _promoties;
 
@@ -112,7 +112,7 @@ namespace WindowsProject.Model
 		}
 
         public Onderneming(string naam, string adres, string plaats, string beschrijving, string postcode,
-            string categorie, string telefoonNummer, string website, IList<string> afbeeldingen)
+            string categorie, string telefoonNummer, string website, string afbeelding)
         {
             _naam = naam;
             _adres = adres;
@@ -122,7 +122,7 @@ namespace WindowsProject.Model
             _categorie = categorie;
             _telefoonNummer = telefoonNummer;
             _website = website;
-            _afbeeldingen = afbeeldingen;
+            _afbeelding = afbeelding;
         }
 
         public Onderneming()
