@@ -1,0 +1,1 @@
+C:\Users\Sander Beazar\Desktop\WindowsApp\WindowsProject\WindowsProject.csproj;x64
