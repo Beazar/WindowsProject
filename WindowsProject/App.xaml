@@ -18,5 +18,8 @@
         <DataTemplate x:Key="RegistreerAlsOndernemerViewModel">
             <view:RegistreerAlsOndernemer/>
         </DataTemplate>
+        <DataTemplate x:Key="RegistreerAlsGebruikerViewModel">
+            <view:RegistreerAlsGebruiker/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

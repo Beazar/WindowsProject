@@ -101,12 +101,14 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Event.cs" />
+    <Compile Include="Model\Gebruiker.cs" />
     <Compile Include="Model\KortingsBon.cs" />
     <Compile Include="Model\Promotie.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModel\DetailViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\LijstViewModel.cs" />
+    <Compile Include="ViewModel\RegistreerAlsGebruikerViewModel.cs" />
     <Compile Include="ViewModel\RegistreerAlsOndernemerViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="Model\Onderneming.cs" />

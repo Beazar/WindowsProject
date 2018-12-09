@@ -19,12 +19,12 @@
         <StackPanel Orientation="Vertical" Grid.Row="0">
             <TextBlock Text="Registreer als gebruiker" Margin="25,7,25,7"/>
             <TextBlock Text="Gebruikersnaam:" Margin="25,7,25,7"/>
-            <TextBox PlaceholderText="vb. Jonas" Margin="25,7,25,7"/>
-            <PasswordBox Width="300" Header="Wachtwoord" PlaceholderText="" PasswordChar="•" />
+            <TextBox PlaceholderText="vb. Jonas" Margin="25,7,25,7" Text="{Binding Gebruikersnaam, Mode=TwoWay}"/>
+            <PasswordBox Width="300" Header="Wachtwoord" Password="{Binding Wachtwoord,  Mode=TwoWay}" PasswordChar="•" Name="txtPassword"/>
             <PasswordBox Width="300" Header="Bevestig uw wachtwoord" PlaceholderText="" PasswordChar="•" />
             
             
         </StackPanel>
-        <Button Content="Doorgaan" Width="200" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,15,15"/>
+        <Button Content="Doorgaan" Width="200" Grid.Row="1" HorizontalAlignment="Right" Command="{Binding AddGebruikerCommand,  Mode=TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" VerticalAlignment="Bottom" Margin="0,0,15,15"/>
     </Grid>
 </Page>

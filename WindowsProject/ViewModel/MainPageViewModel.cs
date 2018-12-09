@@ -70,6 +70,7 @@ namespace WindowsProject.ViewModel
             {
                 Frame frame = new Frame();
                 frame.Navigate(typeof(RegistreerAlsGebruiker), null);
+                frame.DataContext = new RegistreerAlsGebruikerViewModel();
                 //Page page = new Page();
 
                 Window.Current.Content = frame;
