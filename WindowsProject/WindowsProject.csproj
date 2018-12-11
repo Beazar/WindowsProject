@@ -106,6 +106,8 @@
     <Compile Include="Model\Promotie.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModel\DetailViewModel.cs" />
+    <Compile Include="ViewModel\EventToevoegenViewModel.cs" />
+    <Compile Include="ViewModel\EventViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\LijstViewModel.cs" />
     <Compile Include="ViewModel\RegistreerAlsGebruikerViewModel.cs" />
@@ -116,6 +118,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\DetailView.xaml.cs">
       <DependentUpon>DetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EventToevoegenView.xaml.cs">
+      <DependentUpon>EventToevoegenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EventView.xaml.cs">
+      <DependentUpon>EventView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LijstView.xaml.cs">
       <DependentUpon>LijstView.xaml</DependentUpon>
@@ -156,6 +164,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EventToevoegenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

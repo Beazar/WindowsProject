@@ -15,6 +15,14 @@
         <DataTemplate x:Key="DetailViewModel">
             <view:DetailView/>
         </DataTemplate>
+        <DataTemplate x:Key="EventViewModel">
+            <view:EventView/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="EventToevoegenViewModel">
+            <view:EventToevoegenView/>
+        </DataTemplate>
+
         <DataTemplate x:Key="RegistreerAlsOndernemerViewModel">
             <view:RegistreerAlsOndernemer/>
         </DataTemplate>

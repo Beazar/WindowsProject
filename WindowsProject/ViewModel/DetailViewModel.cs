@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace WindowsProject.ViewModel
         public DetailViewModel(Onderneming detailOnderneming)
         {
             this.DetailOnderneming = detailOnderneming;
+            //Debug.WriteLine(this.LoggedInGebruiker.Gebruikersnaam);
         }
 
 
