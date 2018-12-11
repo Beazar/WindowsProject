@@ -7,8 +7,11 @@ using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using WindowsProject.Model;
+using WindowsProject.View;
 
 namespace WindowsProject.ViewModel
 {
@@ -136,8 +139,26 @@ namespace WindowsProject.ViewModel
             var CreatedOnderneming = new Onderneming(Naam, Adres, Plaats, Beschrijving, Postcode, Categorie, Telefoon, Website, Afbeelding, Gebruikersnaam, Wachtwoord);
             HttpClient client = new HttpClient();
             var json = await client.PostAsJsonAsync(new Uri("http://localhost:52974/api/ondernemings/"), CreatedOnderneming);
-
+            Window.Current.Content = new SignIn();
+            /*var popup = new ContentDialog() {
+                Title = "Onderneming is toegevoegd!",
+                CloseButtonText = "Doorgaan"
+            };
+            await popup.ShowAsync();*/
         }
+
+        //public RelayCommand CloseRegistreerWindow { get; set; }
+
+        /*private async void sluitWindow() {
+            var popup = new ContentDialog()
+            {
+                Title = "Onderneming is toegevoegd!",
+                CloseButtonText = "Doorgaan"
+            };
+            await popup.ShowAsync();
+            //Application.Current.Exit();
+            //ApplicationViewSwitcher.DisableSystemViewActivationPolicy();
+        }*/
 
         string previousInput = "";
         private async void Nummer_TextChanging()
@@ -179,6 +200,7 @@ namespace WindowsProject.ViewModel
                 var stringarr2 = stringarr.Last().Split(" ");
                 var plaatstemp = stringarr2.Last();
                 Plaats = plaatstemp.Substring(0, (plaatstemp.Length - 2)).ToLower();
+                RaisePropertyChanged();
             }
 
         }

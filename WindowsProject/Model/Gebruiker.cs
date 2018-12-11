@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WindowsProject.Model
 {
-    class Gebruiker : INotifyPropertyChanged
+    public class Gebruiker : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
