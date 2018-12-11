@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.ComponentModel;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
 using Windows.UI.Xaml;
 using WindowsProject.Model;
@@ -31,6 +33,13 @@ namespace WindowsProject.ViewModel
             get { return _loggedInGebruiker; }
             set { _loggedInGebruiker = value; RaisePropertyChanged("gebruiker"); }
         }
+        private Onderneming _loggedInOnderneming;
+
+        public Onderneming LoggedInOnderneming
+        {
+            get { return _loggedInOnderneming; }
+            set { _loggedInOnderneming = value; RaisePropertyChanged("gebruiker"); }
+        }
 
         protected void RaisePropertyChanged([CallerMemberName]string propertyName="")
         {
@@ -39,7 +48,18 @@ namespace WindowsProject.ViewModel
 
         public ViewModelBase()
         {
+            //this.LoggedInGebruiker = new Gebruiker("sander", "sander");
+            stelGebruikerIn();
             Template = GetTemplate();
+            
+        }
+
+        private async void stelGebruikerIn()
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/1"));
+            var ond = JsonConvert.DeserializeObject<Onderneming>(json);
+            this.LoggedInOnderneming = ond;
         }
 
         private DataTemplate GetTemplate()

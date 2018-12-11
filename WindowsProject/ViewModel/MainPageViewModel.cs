@@ -26,6 +26,11 @@ namespace WindowsProject.ViewModel
         public RelayCommand SignInCommand { get; set; }
         public RelayCommand RegistreerGebruikerCommand { get; set; }
         public RelayCommand RegistreerOndernemerCommand { get; set; }
+        public RelayCommand VoegEventToeCommand { get; set; }
+        public RelayCommand VoegPromotieToeCommand { get; set; }
+        public RelayCommand NaarAbonnementenCommand { get; set; }
+
+
 
         public MainPageViewModel()
         {
@@ -40,6 +45,27 @@ namespace WindowsProject.ViewModel
             SignInCommand = new RelayCommand(async _ => await showLoginAsync());
             RegistreerGebruikerCommand = new RelayCommand(async _ => await showRegistreerGebruikerAsync());
             RegistreerOndernemerCommand = new RelayCommand(async _ => await showRegistreerOndernemerAsync());
+            VoegEventToeCommand = new RelayCommand( _ => showEvent());
+            VoegPromotieToeCommand = new RelayCommand( _ => showPromotie());
+            NaarAbonnementenCommand = new RelayCommand( _ => showAbonnementen());
+
+
+
+        }
+
+        private void showAbonnementen()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void showPromotie()
+        {
+            CurrentData = new PromotieViewModel(this);
+        }
+
+        private void showEvent()
+        {
+            CurrentData = new EventViewModel(this);
         }
 
         private async Task showRegistreerOndernemerAsync()

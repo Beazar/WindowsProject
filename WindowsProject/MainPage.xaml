@@ -91,6 +91,21 @@
                                             <TextBlock Text="Registreer als ondernemer" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button>
+                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding VoegEventToeCommand}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Mijn events" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding VoegPromotieToeCommand}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Mijn promoties" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding NaarAbonnementenCommand}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Mijn Abonnementen" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>

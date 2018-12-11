@@ -9,9 +9,9 @@ using WindowsProject.Model;
 
 namespace WindowsProject.ViewModel
 {
-    class PromotieToevoegenViewModel: ViewModelBase
+    public class EventToevoegenViewModel: ViewModelBase
     {
-        private MainPageViewModel mp;
+        private MainPageViewModel Mp;
         private string _naam;
 
         public string Naam
@@ -19,7 +19,6 @@ namespace WindowsProject.ViewModel
             get { return _naam; }
             set { _naam = value; RaisePropertyChanged(); }
         }
-        
         private DateTimeOffset _startDatum = new DateTimeOffset(DateTime.Now);
 
         public DateTimeOffset StartDatum
@@ -35,7 +34,7 @@ namespace WindowsProject.ViewModel
             set { _startUur = value; RaisePropertyChanged(); }
         }
 
-        private DateTimeOffset _eindDatum = new DateTimeOffset(DateTime.Now);
+        private DateTimeOffset _eindDatum =  new DateTimeOffset(DateTime.Now);
 
         public DateTimeOffset EindDatum
         {
@@ -49,20 +48,21 @@ namespace WindowsProject.ViewModel
             get { return _eindUur; }
             set { _eindUur = value; RaisePropertyChanged(); }
         }
-
-        public RelayCommand addPromotieCommand { get; set; }
-
+        public RelayCommand AddEventCommand { get; set; }
 
 
-        public PromotieToevoegenViewModel(MainPageViewModel mp)
+
+
+        public EventToevoegenViewModel(MainPageViewModel mp)
         {
-            this.mp = mp;
-            addPromotieCommand = new RelayCommand(param => voegPromotieToe());
+            this.Mp = mp;
+            AddEventCommand = new RelayCommand(_ => maakEventAan());
         }
 
-        private async void voegPromotieToe()
+        private async void maakEventAan()
         {
-            DateTime start = new DateTime(this.StartDatum.Year, this.StartDatum.Month, this.StartDatum.Day, this.StartUur.Hours, 0, 0);
+         
+            DateTime start = new DateTime(this.StartDatum.Year, this.StartDatum.Month, this.StartDatum.Day, this.StartUur.Hours,0,0);
             DateTime Eind = new DateTime(this.EindDatum.Year, this.EindDatum.Month, this.EindDatum.Day, this.EindUur.Hours, 0, 0);
             //start.AddYears(this.StartDatum.Year);
             //start.AddMonths(this.StartDatum.Month);
@@ -75,14 +75,12 @@ namespace WindowsProject.ViewModel
 
 
 
-            var CreatedEvent = new Promotie(this.Naam, start, Eind, this.mp.LoggedInOnderneming.OndernemingID);
+            var CreatedEvent = new Event(this.Naam,start,Eind,this.Mp.LoggedInOnderneming.OndernemingID);
             HttpClient client = new HttpClient();
-            var json = await client.PostAsJsonAsync(new Uri("http://localhost:52974/api/promoties"), CreatedEvent); 
-            var ond = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/" + mp.LoggedInOnderneming.OndernemingID));
-            mp.LoggedInOnderneming = JsonConvert.DeserializeObject<Onderneming>(ond);
-            mp.CurrentData = new PromotieViewModel(this.mp);
+            var json = await client.PostAsJsonAsync(new Uri("http://localhost:52974/api/events"), CreatedEvent);
+            var ond = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/" + Mp.LoggedInOnderneming.OndernemingID));
+            Mp.LoggedInOnderneming = JsonConvert.DeserializeObject<Onderneming>(ond);
+            Mp.CurrentData = new EventViewModel(this.Mp);
         }
-
-
     }
 }

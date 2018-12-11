@@ -56,5 +56,13 @@ namespace WindowsProject.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public Event(string naam, DateTime startDatum, DateTime eindDatum, int ondernemingID)
+        {
+            _naam = naam;
+            _startDatum = startDatum;
+            _eindDatum = eindDatum;
+            _ondernemingID = ondernemingID;
+        }
     }
 }

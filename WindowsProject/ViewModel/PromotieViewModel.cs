@@ -18,12 +18,14 @@ namespace WindowsProject.ViewModel
             set { _promoties = value; }
         }
 
+        
+
         public RelayCommand ToevoegenCommand { get; set; }
 
         public PromotieViewModel(MainPageViewModel mp)
         {
             this.mp = mp;
-            this.Promoties = new ObservableCollection<Promotie>(mp.LoggedInGebruiker.Events);
+            this.Promoties = new ObservableCollection<Promotie>(mp.LoggedInOnderneming.Promoties);
             ToevoegenCommand = new RelayCommand(_ => showToevoegen());
         }
 

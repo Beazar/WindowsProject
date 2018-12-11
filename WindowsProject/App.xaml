@@ -15,11 +15,25 @@
         <DataTemplate x:Key="DetailViewModel">
             <view:DetailView/>
         </DataTemplate>
+        <DataTemplate x:Key="EventViewModel">
+            <view:EventView/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="EventToevoegenViewModel">
+            <view:EventToevoegenView/>
+        </DataTemplate>
+
         <DataTemplate x:Key="RegistreerAlsOndernemerViewModel">
             <view:RegistreerAlsOndernemer/>
         </DataTemplate>
         <DataTemplate x:Key="RegistreerAlsGebruikerViewModel">
             <view:RegistreerAlsGebruiker/>
+        </DataTemplate>
+        <DataTemplate x:Key="PromotieViewModel">
+            <view:PromotieView/>
+        </DataTemplate>
+        <DataTemplate x:Key="PromotieToevoegenViewModel">
+            <view:PromotieToevoegenView/>
         </DataTemplate>
     </Application.Resources>
 </Application>
