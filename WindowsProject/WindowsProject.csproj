@@ -108,6 +108,8 @@
     <Compile Include="ViewModel\DetailViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\LijstViewModel.cs" />
+    <Compile Include="ViewModel\PromotieToevoegenViewModel.cs" />
+    <Compile Include="ViewModel\PromotieViewModel.cs" />
     <Compile Include="ViewModel\RegistreerAlsGebruikerViewModel.cs" />
     <Compile Include="ViewModel\RegistreerAlsOndernemerViewModel.cs" />
     <Compile Include="ViewModel\SignInViewModel.cs" />
@@ -119,6 +121,12 @@
     </Compile>
     <Compile Include="View\LijstView.xaml.cs">
       <DependentUpon>LijstView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PromotieToevoegenView.xaml.cs">
+      <DependentUpon>PromotieToevoegenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PromotieView.xaml.cs">
+      <DependentUpon>PromotieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RegistreerAlsGebruiker.xaml.cs">
       <DependentUpon>RegistreerAlsGebruiker.xaml</DependentUpon>
@@ -160,6 +168,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LijstView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PromotieToevoegenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PromotieView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
