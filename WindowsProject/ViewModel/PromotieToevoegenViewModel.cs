@@ -50,6 +50,15 @@ namespace WindowsProject.ViewModel
             set { _eindUur = value; RaisePropertyChanged(); }
         }
 
+        private string _kortingsbon;
+
+        public string Kortingsbon
+        {
+            get { return _kortingsbon; }
+            set { _kortingsbon = value; }
+        }
+
+
         public RelayCommand addPromotieCommand { get; set; }
 
 
@@ -62,7 +71,7 @@ namespace WindowsProject.ViewModel
 
         private async void voegPromotieToe()
         {
-            DateTime start = new DateTime(this.StartDatum.Year, this.StartDatum.Month, this.StartDatum.Day, this.StartUur.Hours, 0, 0);
+            DateTime Start = new DateTime(this.StartDatum.Year, this.StartDatum.Month, this.StartDatum.Day, this.StartUur.Hours, 0, 0);
             DateTime Eind = new DateTime(this.EindDatum.Year, this.EindDatum.Month, this.EindDatum.Day, this.EindUur.Hours, 0, 0);
             //start.AddYears(this.StartDatum.Year);
             //start.AddMonths(this.StartDatum.Month);
@@ -75,7 +84,7 @@ namespace WindowsProject.ViewModel
 
 
 
-            var CreatedEvent = new Promotie(this.Naam, start, Eind, this.mp.LoggedInOnderneming.OndernemingID);
+            var CreatedEvent = new Promotie(this.Naam, Start, Eind, this.Kortingsbon, this.mp.LoggedInOnderneming.OndernemingID);
             HttpClient client = new HttpClient();
             var json = await client.PostAsJsonAsync(new Uri("http://localhost:52974/api/promoties"), CreatedEvent); 
             var ond = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/" + mp.LoggedInOnderneming.OndernemingID));

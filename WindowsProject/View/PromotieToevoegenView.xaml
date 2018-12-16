@@ -26,6 +26,8 @@
             <DatePicker x:Name="b" Date="{Binding EindDatum, Mode=TwoWay}" MinYear="{Binding minYear}" Margin="25,7,25,7"></DatePicker>
             <TimePicker x:Name="a" Time="{Binding EindUur, Mode=TwoWay}" Margin="25,7,25,7"></TimePicker>
 
+            <TextBlock Text="Link naar de afbeelding van je promotie:" Margin="25,7,25,7"/>
+            <TextBox PlaceholderText="" Margin="25,7,25,7"  Text="{Binding Kortingsbon, Mode=TwoWay}"/>
         </StackPanel>
         <Button Content="Doorgaan" Width="200" Grid.Row="1" HorizontalAlignment="Right" Command="{Binding addPromotieCommand,  Mode=TwoWay}" VerticalAlignment="Bottom" Margin="0,0,15,15"/>
     </Grid>

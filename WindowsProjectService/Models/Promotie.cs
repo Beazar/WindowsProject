@@ -17,6 +17,7 @@ namespace WindowsProjectService.Models
         public int OndernemingID { get; set; }
         [JsonIgnore]
         public virtual Onderneming Onderneming { get; set; }
-        public virtual ICollection<KortingsBon> KortingsBonnen { get; set; }
+       // public virtual ICollection<KortingsBon> KortingsBonnen { get; set; }
+        public string Kortingsbon { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace WindowsProject.Model
         private int _ondernemingID;
         private Onderneming _onderneming;
         private ICollection<KortingsBon> _kortingsBonnen;
+        private string _kortingsbon;
 
         public int PromotieID
         {
@@ -57,6 +58,12 @@ namespace WindowsProject.Model
             set { _kortingsBonnen = value;RaisePropertyChanged(); }
         }
 
+        public string Kortingsbon
+        {
+            get { return _kortingsbon; }
+            set { _kortingsbon = value; RaisePropertyChanged(); }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged([CallerMemberName] string propertyName = "")
         {
@@ -69,6 +76,15 @@ namespace WindowsProject.Model
             _startDatum = startDatum;
             _eindDatum = eindDatum;
             _ondernemingID = ondernemingID;
+        }
+
+        public Promotie(string naam, DateTime startDatum, DateTime eindDatum, string kortingsbon , int ondernemingID)
+        {
+            _naam = naam;
+            _startDatum = startDatum;
+            _eindDatum = eindDatum;
+            _ondernemingID = ondernemingID;
+            _kortingsbon = kortingsbon;
         }
     }
 }
