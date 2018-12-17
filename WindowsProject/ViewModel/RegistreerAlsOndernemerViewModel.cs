@@ -26,6 +26,8 @@ namespace WindowsProject.ViewModel
             set { _currentData = value; RaisePropertyChanged(); }
         }
 
+        private MainPageViewModel Mp;
+
         public RelayCommand AddOndernemingCommand { get; set; }
 
         private String _plaats;
@@ -127,8 +129,9 @@ namespace WindowsProject.ViewModel
             set { _naam = value; RaisePropertyChanged(); }
         }
 
-        public RegistreerAlsOndernemerViewModel()
+        public RegistreerAlsOndernemerViewModel(MainPageViewModel mp)
         {
+            this.Mp = mp;
             AddOndernemingCommand = new RelayCommand(param => maakOndernemingAan((PasswordBox)param));
         }
 
@@ -139,7 +142,12 @@ namespace WindowsProject.ViewModel
             var CreatedOnderneming = new Onderneming(Naam, Adres, Plaats, Beschrijving, Postcode, Categorie, Telefoon, Website, Afbeelding, Gebruikersnaam, Wachtwoord);
             HttpClient client = new HttpClient();
             var json = await client.PostAsJsonAsync(new Uri("http://localhost:52974/api/ondernemings/"), CreatedOnderneming);
-            Window.Current.Content = new SignIn();
+            this.Mp.LoggedInOnderneming = CreatedOnderneming;
+            this.Mp.IsVisibleNietIngelogd = Visibility.Collapsed;
+            this.Mp.IsVisibleIngelogd = Visibility.Visible;
+            this.Mp.IsVisibleOnderneming = Visibility.Visible;
+            this.Mp.IsVisibleUser = Visibility.Collapsed;
+            this.Mp.CurrentData = new LijstViewModel(this.Mp);
             /*var popup = new ContentDialog() {
                 Title = "Onderneming is toegevoegd!",
                 CloseButtonText = "Doorgaan"
@@ -147,18 +155,6 @@ namespace WindowsProject.ViewModel
             await popup.ShowAsync();*/
         }
 
-        //public RelayCommand CloseRegistreerWindow { get; set; }
-
-        /*private async void sluitWindow() {
-            var popup = new ContentDialog()
-            {
-                Title = "Onderneming is toegevoegd!",
-                CloseButtonText = "Doorgaan"
-            };
-            await popup.ShowAsync();
-            //Application.Current.Exit();
-            //ApplicationViewSwitcher.DisableSystemViewActivationPolicy();
-        }*/
 
         string previousInput = "";
         private async void Nummer_TextChanging()

@@ -12,6 +12,7 @@ namespace WindowsProject.ViewModel
     public class AbonnementenViewModel : ViewModelBase
     {
         public RelayCommand DeleteCommand { get; set; }
+        public RelayCommand BekijkCommand { get; set; }
 
         private Onderneming _selectedOnderneming;
 
@@ -36,6 +37,12 @@ namespace WindowsProject.ViewModel
             this.Mp = mp;
             this.ListAbonnementen = new ObservableCollection<Onderneming>(this.Mp.LoggedInGebruiker.ListAbonnementen);
             DeleteCommand = new RelayCommand(_ => DeleteAbonnement());
+            BekijkCommand = new RelayCommand(_ => BekijkOnderneming());
+        }
+
+        public void BekijkOnderneming()
+        {
+            this.Mp.CurrentData = new DetailViewModel(SelectedOnderneming,this.Mp);
         }
 
         public async void DeleteAbonnement()

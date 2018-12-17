@@ -65,6 +65,7 @@ namespace WindowsProject.Model
             this._gebruikersnaam = gebruikersnaam;
             this._wachtwoord = wachtwoord;
             this._listAbonnementen = new List<Onderneming>();
+            this.Abonnementen = "";
         }
     }
 }

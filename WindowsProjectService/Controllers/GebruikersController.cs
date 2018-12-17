@@ -17,14 +17,14 @@ namespace WindowsProjectService.Controllers
         private WindowsProjectServiceContext db = new WindowsProjectServiceContext();
 
         // GET: api/Gebruikers
-        [Route("api/gebruikers")]
+       // [Route("api/gebruikers")]
         public IQueryable<Gebruiker> GetGebruikers()
         {
             return db.Gebruikers;
         }
 
         // GET: api/Gebruikers/5
-        [Route("api/gebruikers/{id}")]
+      //  [Route("api/gebruikers/{id}")]
         [ResponseType(typeof(Gebruiker))]
         public IHttpActionResult GetGebruiker(int id)
         {

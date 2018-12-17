@@ -33,6 +33,38 @@ namespace WindowsProject.ViewModel
         public RelayCommand LogUitCommand { get; set; }
 
 
+        private Visibility _isVisibleUser;
+
+        public Visibility IsVisibleUser
+        {
+            get { return _isVisibleUser; }
+            set { _isVisibleUser = value; RaisePropertyChanged(); }
+        }
+
+        private Visibility _isVisibleOnderneming;
+
+        public Visibility IsVisibleOnderneming
+        {
+            get { return _isVisibleOnderneming; }
+            set { _isVisibleOnderneming = value; RaisePropertyChanged(); }
+        }
+
+        private Visibility _isVisibleNietIngelogd;
+
+        public Visibility IsVisibleNietIngelogd
+        {
+            get { return _isVisibleNietIngelogd; }
+            set { _isVisibleNietIngelogd = value; RaisePropertyChanged(); }
+        }
+
+        private Visibility _isVisibleIngelogd;
+
+        public Visibility IsVisibleIngelogd
+        {
+            get { return _isVisibleIngelogd; }
+            set { _isVisibleIngelogd = value; RaisePropertyChanged(); }
+        }
+
 
 
 
@@ -55,6 +87,27 @@ namespace WindowsProject.ViewModel
             ToonAlleOndernemingenCommand = new RelayCommand(_ => ShowOndernemingen());
             LogUitCommand = new RelayCommand(_ => LogUit());
 
+
+            if(this.LoggedInGebruiker == null && this.LoggedInOnderneming == null)
+            {
+                this.IsVisibleNietIngelogd = Visibility.Visible;
+                this.IsVisibleIngelogd = Visibility.Collapsed;
+                this.IsVisibleOnderneming = Visibility.Collapsed;
+                this.IsVisibleUser = Visibility.Collapsed;
+            } else if(this.LoggedInGebruiker == null && this.LoggedInOnderneming != null)
+            {
+                this.IsVisibleNietIngelogd = Visibility.Collapsed;
+                this.IsVisibleIngelogd = Visibility.Visible;
+                this.IsVisibleOnderneming = Visibility.Visible;
+                this.IsVisibleUser = Visibility.Collapsed;
+            } else if(this.LoggedInGebruiker != null && this.LoggedInOnderneming == null)
+            {
+                this.IsVisibleNietIngelogd = Visibility.Collapsed;
+                this.IsVisibleIngelogd = Visibility.Visible;
+                this.IsVisibleOnderneming = Visibility.Collapsed;
+                this.IsVisibleUser = Visibility.Visible;
+            }
+
         }
 
         private void LogUit()
@@ -62,7 +115,12 @@ namespace WindowsProject.ViewModel
             this.LoggedInGebruiker = null;
             this.LoggedInOnderneming = null;
             this.LoggedIn = false;
+            this.IsVisibleNietIngelogd = Visibility.Visible;
+            this.IsVisibleIngelogd = Visibility.Collapsed;
+            this.IsVisibleOnderneming = Visibility.Collapsed;
+            this.IsVisibleUser = Visibility.Collapsed;
             CurrentData = new LijstViewModel(this);
+
         }
 
 
@@ -83,65 +141,16 @@ namespace WindowsProject.ViewModel
 
         private void showRegistreerOndernemer()
         {
-            /*CoreApplicationView newView = CoreApplication.CreateNewView();
-            int newViewId = 1;
-            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                Frame frame = new Frame();
-                frame.Navigate(typeof(RegistreerAlsOndernemer), null);
-                frame.DataContext = new RegistreerAlsOndernemerViewModel();
-                //Page page = new Page();
-
-                Window.Current.Content = frame;
-                // You have to activate the window in order to show it later.
-                Window.Current.Activate();
-                newViewId = ApplicationView.GetForCurrentView().Id;
-            });
-            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
-         //   CurrentData = new RegistreerAlsOndernemerViewModel();*/
-            CurrentData = new RegistreerAlsOndernemerViewModel();
+            CurrentData = new RegistreerAlsOndernemerViewModel(this);
         }
 
         private void showRegistreerGebruiker()
         {
-            /*
-            CoreApplicationView newView = CoreApplication.CreateNewView();
-            int newViewId = 1;
-            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                Frame frame = new Frame();
-                frame.Navigate(typeof(RegistreerAlsGebruiker), null);
-                frame.DataContext = new RegistreerAlsGebruikerViewModel();
-                //Page page = new Page();
-
-                Window.Current.Content = frame;
-                // You have to activate the window in order to show it later.
-                Window.Current.Activate();
-                newViewId = ApplicationView.GetForCurrentView().Id;
-            });
-            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);*/
-            CurrentData = new RegistreerAlsGebruikerViewModel();
+            CurrentData = new RegistreerAlsGebruikerViewModel(this);
         }
 
         private void showLogin()
         {
-
-            /*CoreApplicationView newView = CoreApplication.CreateNewView();
-            ApplicationView newAppView = null;
-            int newViewId = ApplicationView.GetApplicationViewIdForWindow(
-            CoreApplication.MainView.CoreWindow);
-            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                //Frame frame = new Frame();
-                //frame.Navigate(typeof(SignIn), null);
-                //Page page = new Page();
-                newAppView = ApplicationView.GetForCurrentView();
-                Window.Current.Content = new SignIn();
-                // You have to activate the window in order to show it later.
-                Window.Current.Activate();
-                //newViewId = ApplicationView.GetForCurrentView().Id;
-            });
-            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newAppView.Id, ViewSizePreference.UseHalf, newViewId, ViewSizePreference.UseHalf);*/
             CurrentData = new SignInViewModel(this);
         }
 

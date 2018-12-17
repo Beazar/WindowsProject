@@ -73,10 +73,16 @@
                     </Button>
                 </StackPanel>
                 <StackPanel Grid.Row="2">
-                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
+                    <Button Visibility="{Binding IsVisibleUser}" Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Contact" HorizontalAlignment="Left"/>
                             <TextBlock Text="{Binding LoggedInGebruiker.Gebruikersnaam, Mode=TwoWay}" VerticalAlignment="Center" Padding="7"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Visibility="{Binding IsVisibleOnderneming}" Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Contact" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding LoggedInOnderneming.Gebruikersnaam, Mode=TwoWay}" VerticalAlignment="Center" Padding="7"></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
@@ -87,38 +93,38 @@
                         <Button.Flyout>
                             <Flyout>
                                 <StackPanel Orientation="Vertical">
-                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding SignInCommand}">
+                                    <Button Visibility="{Binding IsVisibleNietIngelogd}" Background="Transparent"  HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding SignInCommand}">
                                         <StackPanel Orientation="Horizontal">
                                             <!--<SymbolIcon Symbol="AddFriend" HorizontalAlignment="Left"/>-->
                                             <TextBlock Text="Log in" VerticalAlignment="Center" Padding="7"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding RegistreerGebruikerCommand}">
+                                    <Button Visibility="{Binding IsVisibleNietIngelogd}" Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding RegistreerGebruikerCommand}">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Registreer als gebruiker" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding RegistreerOndernemerCommand}">
+                                    <Button Visibility="{Binding IsVisibleNietIngelogd}"  Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding RegistreerOndernemerCommand}">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Registreer als ondernemer" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding VoegEventToeCommand}">
+                                    <Button Visibility="{Binding IsVisibleOnderneming}" Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding VoegEventToeCommand}">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Mijn events" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding VoegPromotieToeCommand}">
+                                    <Button Visibility="{Binding IsVisibleOnderneming}" Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding VoegPromotieToeCommand}">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Mijn promoties" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding NaarAbonnementenCommand}">
+                                    <Button Visibility="{Binding IsVisibleUser}" Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding NaarAbonnementenCommand}">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Mijn Abonnementen" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding LogUitCommand}">
+                                    <Button Background="Transparent" Visibility="{Binding IsVisibleIngelogd}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding LogUitCommand}">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Log uit" VerticalAlignment="Center"/>
                                         </StackPanel>
@@ -139,6 +145,5 @@
         <SplitView.Content>
             <ContentControl x:Name="mainContent" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Content="{Binding CurrentData}" ContentTemplate="{Binding CurrentData.Template}" HorizontalAlignment="Stretch"/>
         </SplitView.Content>
-
     </SplitView>
 </Page>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using WindowsProject.Model;
 
 namespace WindowsProject.ViewModel
@@ -82,7 +83,11 @@ namespace WindowsProject.ViewModel
                             this.Mp.LoggedInGebruiker.ListAbonnementen.Add(JsonConvert.DeserializeObject<Onderneming>(json2)); //.Substring(1, json2.Length - 2)
                         }
                     }
-                    
+                    this.Mp.IsVisibleIngelogd = Visibility.Visible;
+                    this.Mp.IsVisibleNietIngelogd = Visibility.Collapsed;
+                    this.Mp.IsVisibleUser = Visibility.Visible;
+                    this.Mp.IsVisibleOnderneming = Visibility.Collapsed;
+
                     this.Mp.LoggedIn = true;
                     this.Mp.CurrentData = new LijstViewModel(this.Mp);
 
@@ -93,6 +98,11 @@ namespace WindowsProject.ViewModel
                 Onderneming userO = JsonConvert.DeserializeObject<Onderneming>(jsonO);
                 if (userO != null)
                 {
+                    this.Mp.IsVisibleIngelogd = Visibility.Visible;
+                    this.Mp.IsVisibleNietIngelogd = Visibility.Collapsed;
+                    this.Mp.IsVisibleUser = Visibility.Collapsed;
+                    this.Mp.IsVisibleOnderneming = Visibility.Visible;
+
                     Mp.LoggedInOnderneming = userO;
                     Mp.LoggedIn = true;
                     this.Mp.CurrentData = new LijstViewModel(this.Mp);
