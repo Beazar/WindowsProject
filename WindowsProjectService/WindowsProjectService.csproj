@@ -190,9 +190,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812170900441_Initial.cs" />
-    <Compile Include="Migrations\201812170900441_Initial.Designer.cs">
-      <DependentUpon>201812170900441_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201812171051228_Init.cs" />
+    <Compile Include="Migrations\201812171051228_Init.Designer.cs">
+      <DependentUpon>201812171051228_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Event.cs" />
@@ -215,8 +215,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812170900441_Initial.resx">
-      <DependentUpon>201812170900441_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812171051228_Init.resx">
+      <DependentUpon>201812171051228_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

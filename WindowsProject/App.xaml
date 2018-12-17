@@ -22,7 +22,6 @@
         <DataTemplate x:Key="EventToevoegenViewModel">
             <view:EventToevoegenView/>
         </DataTemplate>
-
         <DataTemplate x:Key="RegistreerAlsOndernemerViewModel">
             <view:RegistreerAlsOndernemer/>
         </DataTemplate>
@@ -34,6 +33,9 @@
         </DataTemplate>
         <DataTemplate x:Key="PromotieToevoegenViewModel">
             <view:PromotieToevoegenView/>
+        </DataTemplate>
+        <DataTemplate x:Key="PromotieImageViewModel">
+            <view:PromotieImageView/>
         </DataTemplate>
     </Application.Resources>
 </Application>

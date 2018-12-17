@@ -88,7 +88,7 @@ namespace WindowsProject.ViewModel
             HttpClient client = new HttpClient();
             var json = await client.PostAsJsonAsync(new Uri("http://localhost:52974/api/promoties"), CreatedEvent); 
             var ond = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/" + mp.LoggedInOnderneming.OndernemingID));
-            mp.LoggedInOnderneming = JsonConvert.DeserializeObject<Onderneming>(ond);
+            mp.LoggedInOnderneming = JsonConvert.DeserializeObject<Onderneming>(ond.Substring(1,ond.Length-2));
             mp.CurrentData = new PromotieViewModel(this.mp);
         }
 

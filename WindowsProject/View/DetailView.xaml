@@ -24,7 +24,7 @@
             <TextBlock Text="{Binding DetailOnderneming.Beschrijving}" TextAlignment="Center"/>
         </ScrollViewer>
         <TextBlock Text="PROMOTIES" TextAlignment="Center"/>
-        <ListView x:Name="promoties" ItemsSource="{Binding DetailOnderneming.Promoties}" Background="LightGray" MinHeight="100">
+        <ListView x:Name="promoties" ItemsSource="{Binding DetailOnderneming.Promoties}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedPromotie, Mode=TwoWay}" Background="LightGray" MinHeight="100">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}" BorderThickness="1">

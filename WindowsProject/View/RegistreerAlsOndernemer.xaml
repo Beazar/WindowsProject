@@ -61,7 +61,7 @@
                 <TextBox x:Name="website" Text="{Binding Website,  Mode=TwoWay}" Margin="25,7,25,7"/>
 
                 <TextBlock Text="beschrijving:" Margin="25,7,25,7"/>
-                <TextBox x:Name="beschrijving" Text="{Binding Beschrijving}" Height="125"  Margin="25,7,25,7"/>
+                <TextBox x:Name="beschrijving" Text="{Binding Beschrijving, Mode=TwoWay}" Height="125"  Margin="25,7,25,7"/>
 
             </StackPanel>
             <Button Content="Doorgaan" Command="{Binding AddOndernemingCommand,  Mode=TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" Width="200" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,15,15"/>
