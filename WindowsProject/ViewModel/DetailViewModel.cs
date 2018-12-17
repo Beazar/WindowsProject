@@ -52,7 +52,9 @@ namespace WindowsProject.ViewModel
             this.DetailOnderneming = detailOnderneming;
             this.Mp = mp;
             AbonneerCommand = new RelayCommand((a) => Abonneer());
-            if(this.Mp.LoggedInGebruiker.Abonnementen.StartsWith(this.DetailOnderneming.OndernemingID + ";") || this.Mp.LoggedInGebruiker.Abonnementen.Contains(";" + this.DetailOnderneming.OndernemingID + ";")) { 
+            if(this.Mp.LoggedInGebruiker.Abonnementen.StartsWith(this.DetailOnderneming.OndernemingID + ";")
+                || this.Mp.LoggedInGebruiker.Abonnementen.Contains(";" + this.DetailOnderneming.OndernemingID + ";")
+                || this.Mp.LoggedInGebruiker == null) { 
           //  if (this.Mp.LoggedInGebruiker.ListAbonnementen.Contains(this.DetailOnderneming)){
                 this.IsVisible = Visibility.Collapsed;
             }

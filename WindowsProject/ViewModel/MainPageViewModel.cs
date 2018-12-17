@@ -29,13 +29,15 @@ namespace WindowsProject.ViewModel
         public RelayCommand VoegEventToeCommand { get; set; }
         public RelayCommand VoegPromotieToeCommand { get; set; }
         public RelayCommand NaarAbonnementenCommand { get; set; }
+        public RelayCommand ToonAlleOndernemingenCommand { get; set; }
+        
 
 
 
         public MainPageViewModel()
         {
             ShowOndernemingen(); //toon de ondernemingen direct
-            AllOndernemingenCommand = new RelayCommand(_ => ShowOndernemingen());
+            AllOndernemingenCommand = new RelayCommand(_ => ShowPromoties());
             BarsCommand = new RelayCommand(_ => showBars());
             RestaurantsCommand = new RelayCommand(_ => showRestaurants());
             OvernachtingCommand = new RelayCommand(_ => showOvernachting());
@@ -48,6 +50,7 @@ namespace WindowsProject.ViewModel
             VoegEventToeCommand = new RelayCommand( _ => showEvent());
             VoegPromotieToeCommand = new RelayCommand( _ => showPromotie());
             NaarAbonnementenCommand = new RelayCommand( _ => showAbonnementen());
+            ToonAlleOndernemingenCommand = new RelayCommand(_ => ShowOndernemingen());
 
         }
 
@@ -158,6 +161,11 @@ namespace WindowsProject.ViewModel
             CurrentData = new LijstViewModel(this,"Restaurant");
         }
 
+        private void ShowOndernemingen()
+        {
+            CurrentData = new LijstViewModel(this);
+        }
+
         private ViewModelBase _currentData;
         public ViewModelBase CurrentData
         {
@@ -165,9 +173,9 @@ namespace WindowsProject.ViewModel
             set { _currentData = value; RaisePropertyChanged(); }
         }
 
-        private void ShowOndernemingen()
+        private void ShowPromoties()
         {
-            CurrentData = new LijstViewModel(this);
+            CurrentData = new LijstViewModel(this, "Promoties");
         }
 
     }
