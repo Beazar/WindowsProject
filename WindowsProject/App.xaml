@@ -34,6 +34,9 @@
         <DataTemplate x:Key="PromotieToevoegenViewModel">
             <view:PromotieToevoegenView/>
         </DataTemplate>
+        <DataTemplate x:Key="SignInViewModel">
+            <view:SignIn/>
+        </DataTemplate>
         <DataTemplate x:Key="PromotieImageViewModel">
             <view:PromotieImageView/>
         </DataTemplate>

@@ -17,13 +17,14 @@ namespace WindowsProjectService.Controllers
         private WindowsProjectServiceContext db = new WindowsProjectServiceContext();
 
         // GET: api/Ondernemings
+        [Route("api/ondernemings")]
         public IQueryable<Onderneming> GetOndernemings()
         {
             return db.Ondernemings;
         }
 
         // GET: api/Ondernemings/5
-    //    [Route("ondernemings/{id}")]
+        [Route("api/ondernemings/{id}")]
         [ResponseType(typeof(Onderneming))]
         public IHttpActionResult GetOnderneming(int id)
         {
@@ -38,7 +39,8 @@ namespace WindowsProjectService.Controllers
         }
 
         // GET: api/Ondernemings/james
-        [Route("ondernemings/{gebruikersnaam}_{wachtwoord}")]
+        
+        [Route("api/ondernemings/{gebruikersnaam}_{wachtwoord}")]
         [ResponseType(typeof(Onderneming))]
         public IHttpActionResult GetLoggedInOnderneming(string gebruikersnaam, string wachtwoord)
         {
