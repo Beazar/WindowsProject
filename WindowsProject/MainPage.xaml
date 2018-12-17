@@ -69,6 +69,12 @@
                 <StackPanel Grid.Row="2">
                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
                         <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Contact" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding GebruikersNaam, Mode=TwoWay}" VerticalAlignment="Center" Padding="7"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
+                        <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="AddFriend" HorizontalAlignment="Left"/>
                             <TextBlock Text="Account" VerticalAlignment="Center" Padding="7"></TextBlock>
                         </StackPanel>

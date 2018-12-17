@@ -31,14 +31,22 @@ namespace WindowsProject.ViewModel
         public Gebruiker LoggedInGebruiker
         {
             get { return _loggedInGebruiker; }
-            set { _loggedInGebruiker = value; RaisePropertyChanged("gebruiker"); }
+            set { _loggedInGebruiker = value; GebruikersNaam = _loggedInGebruiker.Gebruikersnaam; RaisePropertyChanged("gebruiker"); }
         }
         private Onderneming _loggedInOnderneming;
 
         public Onderneming LoggedInOnderneming
         {
             get { return _loggedInOnderneming; }
-            set { _loggedInOnderneming = value; RaisePropertyChanged("gebruiker"); }
+            set { _loggedInOnderneming = value; GebruikersNaam = _loggedInOnderneming.Gebruikersnaam; RaisePropertyChanged("onderneming"); }
+        }
+
+        private string _gebruikersNaam;
+
+        public string GebruikersNaam
+        {
+            get { return _gebruikersNaam; }
+            set { _gebruikersNaam = value; RaisePropertyChanged("gebruikersNaam"); }
         }
 
         protected void RaisePropertyChanged([CallerMemberName]string propertyName="")
@@ -49,7 +57,7 @@ namespace WindowsProject.ViewModel
         public ViewModelBase()
         {
             //this.LoggedInGebruiker = new Gebruiker("sander", "sander");
-            stelGebruikerIn();
+            //stelGebruikerIn();
             Template = GetTemplate();
             
         }

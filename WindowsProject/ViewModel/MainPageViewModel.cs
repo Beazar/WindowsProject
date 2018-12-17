@@ -42,9 +42,9 @@ namespace WindowsProject.ViewModel
             AndereCommand = new RelayCommand(_ => showAndere());
             KledingCommand = new RelayCommand(_ => showKleding());
             KappersCommand = new RelayCommand(_ => showKappers());
-            SignInCommand = new RelayCommand(async _ => await showLoginAsync());
-            RegistreerGebruikerCommand = new RelayCommand(async _ => await showRegistreerGebruikerAsync());
-            RegistreerOndernemerCommand = new RelayCommand(async _ => await showRegistreerOndernemerAsync());
+            SignInCommand = new RelayCommand(_ => showLogin());
+            RegistreerGebruikerCommand = new RelayCommand(_ => showRegistreerGebruiker());
+            RegistreerOndernemerCommand = new RelayCommand(_ => showRegistreerOndernemer());
             VoegEventToeCommand = new RelayCommand( _ => showEvent());
             VoegPromotieToeCommand = new RelayCommand( _ => showPromotie());
             NaarAbonnementenCommand = new RelayCommand( _ => showAbonnementen());
@@ -68,9 +68,9 @@ namespace WindowsProject.ViewModel
             CurrentData = new EventViewModel(this);
         }
 
-        private async Task showRegistreerOndernemerAsync()
+        private void showRegistreerOndernemer()
         {
-            CoreApplicationView newView = CoreApplication.CreateNewView();
+            /*CoreApplicationView newView = CoreApplication.CreateNewView();
             int newViewId = 1;
             await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
@@ -85,11 +85,13 @@ namespace WindowsProject.ViewModel
                 newViewId = ApplicationView.GetForCurrentView().Id;
             });
             bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
-         //   CurrentData = new RegistreerAlsOndernemerViewModel();
+         //   CurrentData = new RegistreerAlsOndernemerViewModel();*/
+            CurrentData = new RegistreerAlsOndernemerViewModel();
         }
 
-        private async Task showRegistreerGebruikerAsync()
+        private void showRegistreerGebruiker()
         {
+            /*
             CoreApplicationView newView = CoreApplication.CreateNewView();
             int newViewId = 1;
             await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
@@ -104,19 +106,21 @@ namespace WindowsProject.ViewModel
                 Window.Current.Activate();
                 newViewId = ApplicationView.GetForCurrentView().Id;
             });
-            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
+            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);*/
+            CurrentData = new RegistreerAlsGebruikerViewModel();
         }
 
-        private async Task showLoginAsync()
+        private void showLogin()
         {
-            CoreApplicationView newView = CoreApplication.CreateNewView();
+
+            /*CoreApplicationView newView = CoreApplication.CreateNewView();
             ApplicationView newAppView = null;
             int newViewId = ApplicationView.GetApplicationViewIdForWindow(
-    CoreApplication.MainView.CoreWindow);
+            CoreApplication.MainView.CoreWindow);
             await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                /*Frame frame = new Frame();
-                frame.Navigate(typeof(SignIn), null);*/
+                //Frame frame = new Frame();
+                //frame.Navigate(typeof(SignIn), null);
                 //Page page = new Page();
                 newAppView = ApplicationView.GetForCurrentView();
                 Window.Current.Content = new SignIn();
@@ -124,10 +128,8 @@ namespace WindowsProject.ViewModel
                 Window.Current.Activate();
                 //newViewId = ApplicationView.GetForCurrentView().Id;
             });
-            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newAppView.Id,
-    ViewSizePreference.UseHalf,
-    newViewId,
-    ViewSizePreference.UseHalf);
+            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newAppView.Id, ViewSizePreference.UseHalf, newViewId, ViewSizePreference.UseHalf);*/
+            CurrentData = new SignInViewModel(this);
         }
 
         private void showKappers()
