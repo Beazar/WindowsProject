@@ -64,10 +64,26 @@ namespace WindowsProject.ViewModel
 
         private async void stelGebruikerIn()
         {
+            
             HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/1"));
-            var ond = JsonConvert.DeserializeObject<Onderneming>(json);
+            var json = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/4"));
+          //  var json4 = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings"));
+            var ond = JsonConvert.DeserializeObject<Onderneming>(json); //.Substring(1,json.Length-2)
             this.LoggedInOnderneming = ond;
+            
+            var jsonG = await client.GetStringAsync(new Uri("http://localhost:52974/api/gebruikers/1"));
+            var gebr = JsonConvert.DeserializeObject<Gebruiker>(jsonG); //.Substring(1, jsonG.Length - 2)
+            this.LoggedInGebruiker = gebr;
+          //  this.LoggedInGebruiker.
+            if(this.LoggedInGebruiker.Abonnementen != "" && this.LoggedInGebruiker.Abonnementen != null)
+            {
+               var idArray = this.LoggedInGebruiker.Abonnementen.Split(';');
+                for(int i = 0; i<idArray.Length-1; i++)
+                {
+                    var json2 = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/"+idArray[i]));
+                    this.LoggedInGebruiker.ListAbonnementen.Add(JsonConvert.DeserializeObject<Onderneming>(json2)); //.Substring(1, json2.Length - 2)
+                }
+            }
         }
 
         private DataTemplate GetTemplate()

@@ -10,5 +10,6 @@ namespace WindowsProjectService.Models
         public int GebruikerID { get; set; }
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
+        public string Abonnementen {get; set;}
     }
 }

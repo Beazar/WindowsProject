@@ -36,6 +36,24 @@ namespace WindowsProject.Model
             set { _wachtwoord = value; RaisePropertyChanged(); }
         }
 
+        private string _abonnementen;
+
+        public string Abonnementen
+        {
+            get { return _abonnementen; }
+            set { _abonnementen = value; RaisePropertyChanged(); }
+        }
+
+        private List<Onderneming> _listAbonnementen;
+
+        public List<Onderneming> ListAbonnementen
+        {
+            get { return _listAbonnementen; }
+            set { _listAbonnementen = value; }
+        }
+
+
+
         protected void RaisePropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -46,6 +64,7 @@ namespace WindowsProject.Model
         {
             this._gebruikersnaam = gebruikersnaam;
             this._wachtwoord = wachtwoord;
+            this._listAbonnementen = new List<Onderneming>();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace WindowsProject.ViewModel
         {
             Debug.Write(this.Template);
             // this.Template = new DetailViewModel(SelectedOnderneming);
-            Mp.CurrentData = new DetailViewModel(SelectedOnderneming);
+            Mp.CurrentData = new DetailViewModel(SelectedOnderneming, this.Mp);
             
         }
 
@@ -69,12 +69,46 @@ namespace WindowsProject.ViewModel
         }
         public LijstViewModel(MainPageViewModel mp, string filter)
         {
-            loadDataCategorie(filter);
-         //   SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
+            if(filter == "Promoties")
+            {
+                loadDataPromoties();
+            }
+            else
+            {
+                loadDataCategorie(filter);
+            }
+            //   SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
             ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));
+            this.Mp = mp;
             //this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.Where(o => o.Categorie == filter));
         }
-        
+
+        private async void loadDataPromoties()
+        {
+            var today = new DateTime();
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/"));
+            var lst = JsonConvert.DeserializeObject<List<Onderneming>>(json);
+            lst = lst.Where(o => o.Promoties.Count > 0).ToList();
+            for(int i = 0; i < lst.Count; i++)
+            {
+                var k = 0;
+                for(int j = 0; j < lst[i].Promoties.Count; j++)
+                {
+                    if(lst[i].Promoties.ElementAt(j).StartDatum < today && lst[i].Promoties.ElementAt(j).EindDatum > today)
+                    {
+                        k++;
+                    }
+                }
+                if (k > 0)
+                {
+                    lst.Remove(lst[i]);
+                }
+            }
+            this.Ondernemingen = new ObservableCollection<Onderneming>(lst);
+
+        }
+
         private async void loadData()
         {
             HttpClient client = new HttpClient();

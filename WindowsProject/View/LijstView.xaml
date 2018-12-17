@@ -22,10 +22,13 @@
                 <ListView x:Name="lv" ItemsSource="{Binding Ondernemingen}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedOnderneming, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate x:Name="TripleLineDataTemplate">
-                            <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}" >
-                                <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
-                                <TextBlock Text="{Binding Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
-                                <TextBlock Text="{Binding Adres}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding Afbeelding}" Width="100" Height="84"></Image>
+                                <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}" >
+                                    <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
+                                    <TextBlock Text="{Binding Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
+                                    <TextBlock Text="{Binding Adres}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
+                                </StackPanel>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

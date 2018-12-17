@@ -22,7 +22,6 @@
         <DataTemplate x:Key="EventToevoegenViewModel">
             <view:EventToevoegenView/>
         </DataTemplate>
-
         <DataTemplate x:Key="RegistreerAlsOndernemerViewModel">
             <view:RegistreerAlsOndernemer/>
         </DataTemplate>
@@ -37,6 +36,12 @@
         </DataTemplate>
         <DataTemplate x:Key="SignInViewModel">
             <view:SignIn/>
+        </DataTemplate>
+        <DataTemplate x:Key="PromotieImageViewModel">
+            <view:PromotieImageView/>
+        </DataTemplate>
+        <DataTemplate x:Key="AbonnementenViewModel">
+            <view:AbonnementenView/>
         </DataTemplate>
     </Application.Resources>
 </Application>

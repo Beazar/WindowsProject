@@ -12,13 +12,16 @@
     <ScrollViewer>
         <StackPanel>
             <StackPanel>
-                <ListView x:Name="lv" ItemsSource="{Binding Events}" IsItemClickEnabled="True">
+                <ListView x:Name="lv" ItemsSource="{Binding Events}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate x:Name="TripleLineDataTemplate">
-                            <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}" >
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}" >
                                 <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
                                 <TextBlock Text="{Binding StartDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
                                 <TextBlock Text="{Binding EindDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
+                            </StackPanel>
+                            <Button Content="Delete" Command="{Binding ElementName=lv ,Path=DataContext.DeleteCommand}"></Button>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

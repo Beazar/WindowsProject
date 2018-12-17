@@ -21,47 +21,53 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock Padding="30" TextAlignment="Center" Text="App_Name" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
+                <TextBlock Padding="30" TextAlignment="Center" Text="Shop in Aalst" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
                 <StackPanel  Orientation="Vertical" Grid.Row="1">
+                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding ToonAlleOndernemingenCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="https://cdn0.iconfinder.com/data/icons/interface-set-vol-2/50/Menu_Options-2-512.png" Width="25" Height="25"></Image>
+                            <TextBlock Text="Alles" Padding="7"></TextBlock>
+                        </StackPanel>
+                    </Button>
                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" BorderBrush="Gold" BorderThickness="2" Command="{Binding AllOndernemingenCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="57619" HorizontalAlignment="Left"/>
+                            <Image Source="https://cdn3.iconfinder.com/data/icons/discount-and-promotion/500/prices-512.png" Width="25" Height="25"></Image>
                             <TextBlock Text="Promoties" Padding="7"></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding RestaurantsCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="57619" HorizontalAlignment="Left"/>
+                            <Image Source="http://cdn.onlinewebfonts.com/svg/img_255075.png" Width="25" Height="25"></Image>
                             <TextBlock Text="Restaurants" Padding="7"></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding BarsCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="57619" HorizontalAlignment="Left"/>
+                            <Image Source="https://cdn3.iconfinder.com/data/icons/food-and-drinks-icons/512/Cocktail-512.png" Width="25" Height="25"></Image>
                             <TextBlock Text="Bars" Padding="7"></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Background="Transparent"  HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding KledingCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="57619" HorizontalAlignment="Left"/>
+                            <Image Source="https://cdn1.iconfinder.com/data/icons/fitness/500/T-shirt-512.png" Width="25" Height="25"></Image>
                             <TextBlock Text="Kleding" Padding="7"></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding OvernachtingCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="57619" HorizontalAlignment="Left"/>
+                            <Image Source="https://img.icons8.com/ios/1600/bed-filled.png" Width="25" Height="25"></Image>
                             <TextBlock Text="Overnachting" Padding="7"></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding KappersCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="57707" HorizontalAlignment="Left"/>
+                            <Image Source="https://cdn0.iconfinder.com/data/icons/mobile-development-svg-icons/60/Barber-512.png" Width="25" Height="25"></Image>
                             <TextBlock Text="Kappers" Padding="7"></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding AndereCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="57707" HorizontalAlignment="Left"/>
+                            <Image Source="https://cdn2.iconfinder.com/data/icons/outlined-set-1/29/more-512.png" Width="25" Height="25"></Image>
                             <TextBlock Text="Andere" Padding="7"></TextBlock>
                         </StackPanel>
                     </Button>
@@ -124,50 +130,6 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            <!--<StackPanel x:Name="PaneStackPanel" HorizontalAlignment="Stretch">
-                <Button  HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" BorderBrush="Gold" BorderThickness="5" Command="{Binding AllOndernemingenCommand}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Promoties" Padding="30"></TextBlock>
-                        <SymbolIcon Symbol="57619" HorizontalAlignment="Right"/>
-                    </StackPanel>
-                </Button>
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding RestaurantsCommand}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Restaurants" Padding="30"></TextBlock>
-                        <SymbolIcon Symbol="57619" HorizontalAlignment="Right"/>
-                    </StackPanel>
-                </Button>
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding BarsCommand}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Bars" Padding="30"></TextBlock>
-                        <SymbolIcon Symbol="57619" HorizontalAlignment="Right"/>
-                    </StackPanel>
-                </Button>
-                <Button  HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding KledingCommand}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Kleding" Padding="30"></TextBlock>
-                        <SymbolIcon Symbol="57619" HorizontalAlignment="Right"/>
-                    </StackPanel>
-                </Button>
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding OvernachtingCommand}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Overnachting" Padding="30"></TextBlock>
-                        <SymbolIcon Symbol="57619" HorizontalAlignment="Right"/>
-                    </StackPanel>
-                </Button>
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding KappersCommand}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Kappers" Padding="30"></TextBlock>
-                        <SymbolIcon Symbol="57707" HorizontalAlignment="Right"/>
-                    </StackPanel>
-                </Button>
-                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="100" Command="{Binding AndereCommand}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Andere" Padding="30" HorizontalAlignment="Stretch" Height="80" Margin="0,0,0,0" VerticalAlignment="Top"></TextBlock>
-                        <SymbolIcon Symbol="57707" HorizontalAlignment="Right"/>
-                    </StackPanel>
-                </Button>
-            </StackPanel>-->
         </SplitView.Pane>
         <SplitView.Content>
             <ContentControl x:Name="mainContent" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Content="{Binding CurrentData}" ContentTemplate="{Binding CurrentData.Template}" HorizontalAlignment="Stretch"/>
