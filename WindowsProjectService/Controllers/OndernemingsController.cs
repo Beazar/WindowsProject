@@ -23,15 +23,29 @@ namespace WindowsProjectService.Controllers
         }
 
         // GET: api/Ondernemings/5
+        [Route("ondernemings/{id}")]
         [ResponseType(typeof(Onderneming))]
         public IHttpActionResult GetOnderneming(int id)
         {
-            Onderneming onderneming = db.Ondernemings.Find(id);
+            Onderneming onderneming = db.Ondernemings.First(user => user.OndernemingID == id);
             if (onderneming == null)
             {
                 return NotFound();
             }
 
+            return Ok(onderneming);
+        }
+
+        // GET: api/Ondernemings/james
+        [Route("ondernemings/{gebruikersnaam}_{wachtwoord}")]
+        [ResponseType(typeof(Onderneming))]
+        public IHttpActionResult GetLoggedInOnderneming(string gebruikersnaam, string wachtwoord)
+        {
+            Onderneming onderneming = db.Ondernemings.First(user => (user.Gebruikersnaam == gebruikersnaam) && (user.Wachtwoord == wachtwoord));
+            if(onderneming == null)
+            {
+                return NotFound();
+            }
             return Ok(onderneming);
         }
 

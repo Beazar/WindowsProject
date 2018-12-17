@@ -23,6 +23,7 @@ namespace WindowsProjectService.Controllers
         }
 
         // GET: api/Gebruikers/5
+        [Route("ondernemings/{id}")]
         [ResponseType(typeof(Gebruiker))]
         public IHttpActionResult GetGebruiker(int id)
         {
@@ -32,6 +33,19 @@ namespace WindowsProjectService.Controllers
                 return NotFound();
             }
 
+            return Ok(gebruiker);
+        }
+
+        // GET: api/Gebruikers/james_james
+        [Route("gebruikers/{gebruikersnaam}_{wachtwoord}")]
+        [ResponseType(typeof(Gebruiker))]
+        public IHttpActionResult GetLoggedInGebruiker(string gebruikersnaam, string wachtwoord)
+        {
+            Gebruiker gebruiker = db.Gebruikers.First(user=>(user.Gebruikersnaam==gebruikersnaam)&&(user.Wachtwoord==wachtwoord));
+            if (gebruiker == null)
+            {
+                return NotFound();
+            }
             return Ok(gebruiker);
         }
 
