@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsProject.Model;
@@ -11,6 +12,17 @@ namespace WindowsProject.ViewModel
 {
    public class EventViewModel:ViewModelBase
     {
+        public RelayCommand DeleteCommand { get; set; }
+
+        private Event _selectedEvent;
+
+        public Event SelectedEvent
+        {
+            get { return _selectedEvent; }
+            set { _selectedEvent = value; RaisePropertyChanged(); }
+        }
+
+
         private ObservableCollection<Event> _events;
         public ObservableCollection<Event> Events
         {
@@ -27,7 +39,16 @@ namespace WindowsProject.ViewModel
             this.Mp = mp;
             this.Events = new ObservableCollection<Event>(mp.LoggedInOnderneming.Events);
             ToevoegenCommand = new RelayCommand(_ => showToevoegen());
+            DeleteCommand = new RelayCommand(_ => DeleteEvent());
 
+        }
+
+        private async void DeleteEvent()
+        {
+            this.Mp.LoggedInOnderneming.Events.Remove(this.SelectedEvent);
+            HttpClient client = new HttpClient();
+            await client.DeleteAsync(new Uri("http://localhost:52974/api/events/" + this.SelectedEvent.EventID));
+            this.Events = new ObservableCollection<Event>(this.Mp.LoggedInOnderneming.Events);
         }
 
         private void showToevoegen()
