@@ -27,6 +27,8 @@ namespace WindowsProject.ViewModel
             set { _mp = value; }
         }
 
+        public Visibility IsVisible { get; set; }
+
         private Onderneming _detailonderneming;
 
         public Onderneming DetailOnderneming
@@ -50,6 +52,14 @@ namespace WindowsProject.ViewModel
             this.DetailOnderneming = detailOnderneming;
             this.Mp = mp;
             AbonneerCommand = new RelayCommand((a) => Abonneer());
+            if(this.Mp.LoggedInGebruiker.Abonnementen.StartsWith(this.DetailOnderneming.OndernemingID + ";") || this.Mp.LoggedInGebruiker.Abonnementen.Contains(";" + this.DetailOnderneming.OndernemingID + ";")) { 
+          //  if (this.Mp.LoggedInGebruiker.ListAbonnementen.Contains(this.DetailOnderneming)){
+                this.IsVisible = Visibility.Collapsed;
+            }
+            else
+            {
+                this.IsVisible = Visibility.Visible;
+            }
             //Debug.WriteLine(this.LoggedInGebruiker.Gebruikersnaam);
         }
 
@@ -61,6 +71,7 @@ namespace WindowsProject.ViewModel
             Debug.WriteLine(this.Mp.LoggedInGebruiker.Gebruikerid);
             var json = await client.PutAsJsonAsync(new Uri("http://localhost:52974/api/gebruikers/"+this.Mp.LoggedInGebruiker.Gebruikerid),
                 this.Mp.LoggedInGebruiker);
+            this.Mp.CurrentData = new DetailViewModel(this.DetailOnderneming, this.Mp);
         }
 
         public async Task HandleSelectedPromotie()

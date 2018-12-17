@@ -47,6 +47,6 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Command="{Binding AbonneerCommand}" Content="Abonneer"></Button>
+        <Button x:Name="Btn" Command="{Binding AbonneerCommand}" Content="Abonneer" Visibility="{Binding IsVisible}"></Button>
     </StackPanel>
 </UserControl>

@@ -20,6 +20,7 @@
                             <TextBlock Text="{Binding Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
                             <TextBlock Text="{Binding Adres}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
                         </StackPanel>
+                        <Button Content="Delete" Command="{Binding ElementName=lv ,Path=DataContext.DeleteCommand}"></Button>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

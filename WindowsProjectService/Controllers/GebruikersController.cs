@@ -23,7 +23,7 @@ namespace WindowsProjectService.Controllers
         }
 
         // GET: api/Gebruikers/5
-        [Route("ondernemings/{id}")]
+      //  [Route("ondernemings/{id}")]
         [ResponseType(typeof(Gebruiker))]
         public IHttpActionResult GetGebruiker(int id)
         {
