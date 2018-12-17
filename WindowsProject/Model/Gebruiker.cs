@@ -49,7 +49,7 @@ namespace WindowsProject.Model
         public List<Onderneming> ListAbonnementen
         {
             get { return _listAbonnementen; }
-            set { _listAbonnementen = value; }
+            set { _listAbonnementen = value; RaisePropertyChanged(); }
         }
 
 

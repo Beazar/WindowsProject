@@ -29,26 +29,12 @@ namespace WindowsProject.ViewModel
             set { _wachtwoord = value; RaisePropertyChanged(); }
         }
 
-        private MainPageViewModel _mpvm;
-
-        public MainPageViewModel MPVM
-        {
-            get { return _mpvm; }
-            set { _mpvm = value; RaisePropertyChanged(); }
-        }
-
-        private ViewModelBase _currentData;
-
-        public ViewModelBase Currentdata
-        {
-            get { return _currentData; }
-            set { _currentData = value; RaisePropertyChanged(); }
-        }
+        private MainPageViewModel Mp { get; set; }
 
         public SignInViewModel(MainPageViewModel mpvm)
         {
             Debug.Write("voor toewijzen MPVM");
-            MPVM = mpvm;
+            Mp = mpvm;
             Debug.Write("voor command");
             LoginCommand = new RelayCommand(param => Login());
             Debug.Write("na command");
@@ -81,24 +67,35 @@ namespace WindowsProject.ViewModel
             }
             Debug.WriteLine(jsonG);
             Debug.WriteLine(jsonO);
-            if (jsonG != null && MPVM != null)
+            if (jsonG != null)
             {
                 Gebruiker userG = JsonConvert.DeserializeObject<Gebruiker>(jsonG);
                 if (userG != null)
                 {
-                    MPVM.LoggedInGebruiker = userG;
-                    MPVM.LoggedIn = true;
-                    this.MPVM.CurrentData = new LijstViewModel(this.MPVM);
+                    this.Mp.LoggedInGebruiker = userG;
+                    if (this.Mp.LoggedInGebruiker.Abonnementen != "" && this.Mp.LoggedInGebruiker.Abonnementen != null)
+                    {
+                        var idArray = this.Mp.LoggedInGebruiker.Abonnementen.Split(';');
+                        for (int i = 0; i < idArray.Length - 1; i++)
+                        {
+                            var json2 = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/" + idArray[i]));
+                            this.Mp.LoggedInGebruiker.ListAbonnementen.Add(JsonConvert.DeserializeObject<Onderneming>(json2)); //.Substring(1, json2.Length - 2)
+                        }
+                    }
+                    
+                    this.Mp.LoggedIn = true;
+                    this.Mp.CurrentData = new LijstViewModel(this.Mp);
+
                 }
             }
-            else if (jsonO != null && MPVM != null)
+            else if (jsonO != null)
             {
                 Onderneming userO = JsonConvert.DeserializeObject<Onderneming>(jsonO);
                 if (userO != null)
                 {
-                    MPVM.LoggedInOnderneming = userO;
-                    MPVM.LoggedIn = true;
-                    this.MPVM.CurrentData = new LijstViewModel(this.MPVM);
+                    Mp.LoggedInOnderneming = userO;
+                    Mp.LoggedIn = true;
+                    this.Mp.CurrentData = new LijstViewModel(this.Mp);
                 }
             }
         }

@@ -30,7 +30,9 @@ namespace WindowsProject.ViewModel
         public RelayCommand VoegPromotieToeCommand { get; set; }
         public RelayCommand NaarAbonnementenCommand { get; set; }
         public RelayCommand ToonAlleOndernemingenCommand { get; set; }
-        
+        public RelayCommand LogUitCommand { get; set; }
+
+
 
 
 
@@ -51,8 +53,18 @@ namespace WindowsProject.ViewModel
             VoegPromotieToeCommand = new RelayCommand( _ => showPromotie());
             NaarAbonnementenCommand = new RelayCommand( _ => showAbonnementen());
             ToonAlleOndernemingenCommand = new RelayCommand(_ => ShowOndernemingen());
+            LogUitCommand = new RelayCommand(_ => LogUit());
 
         }
+
+        private void LogUit()
+        {
+            this.LoggedInGebruiker = null;
+            this.LoggedInOnderneming = null;
+            this.LoggedIn = false;
+            CurrentData = new LijstViewModel(this);
+        }
+
 
         private void showAbonnementen()
         {

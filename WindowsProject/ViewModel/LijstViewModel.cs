@@ -66,6 +66,7 @@ namespace WindowsProject.ViewModel
          //   SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
             ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));
             this.Mp = mp;
+            
         }
         public LijstViewModel(MainPageViewModel mp, string filter)
         {

@@ -76,7 +76,7 @@
                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Contact" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding GebruikersNaam, Mode=TwoWay}" VerticalAlignment="Center" Padding="7"></TextBlock>
+                            <TextBlock Text="{Binding LoggedInGebruiker.Gebruikersnaam, Mode=TwoWay}" VerticalAlignment="Center" Padding="7"></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
@@ -116,6 +116,11 @@
                                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding NaarAbonnementenCommand}">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Mijn Abonnementen" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding LogUitCommand}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Log uit" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>

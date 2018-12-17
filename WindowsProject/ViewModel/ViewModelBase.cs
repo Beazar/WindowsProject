@@ -15,7 +15,7 @@ namespace WindowsProject.ViewModel
         public DataTemplate Template
         {
             get { return _template; }
-            set { _template = value; RaisePropertyChanged("Template"); }
+            set { _template = value; RaisePropertyChanged(); }
         }
 
         private bool _loggedIn;
@@ -23,7 +23,7 @@ namespace WindowsProject.ViewModel
         public bool LoggedIn
         {
             get { return _loggedIn; }
-            set { _loggedIn = value; RaisePropertyChanged("LoggedIn"); }
+            set { _loggedIn = value; RaisePropertyChanged(); }
         }
 
         private Gebruiker _loggedInGebruiker;
@@ -31,23 +31,23 @@ namespace WindowsProject.ViewModel
         public Gebruiker LoggedInGebruiker
         {
             get { return _loggedInGebruiker; }
-            set { _loggedInGebruiker = value; GebruikersNaam = _loggedInGebruiker.Gebruikersnaam; RaisePropertyChanged("gebruiker"); }
+            set { _loggedInGebruiker = value; RaisePropertyChanged(); }
         }
         private Onderneming _loggedInOnderneming;
 
         public Onderneming LoggedInOnderneming
         {
             get { return _loggedInOnderneming; }
-            set { _loggedInOnderneming = value; GebruikersNaam = _loggedInOnderneming.Gebruikersnaam; RaisePropertyChanged("onderneming"); }
+            set { _loggedInOnderneming = value; RaisePropertyChanged(); }
         }
 
-        private string _gebruikersNaam;
+ /*       private string _gebruikersNaam;
 
         public string GebruikersNaam
         {
             get { return _gebruikersNaam; }
             set { _gebruikersNaam = value; RaisePropertyChanged("gebruikersNaam"); }
-        }
+        }*/
 
         protected void RaisePropertyChanged([CallerMemberName]string propertyName="")
         {
@@ -58,6 +58,7 @@ namespace WindowsProject.ViewModel
         {
             //this.LoggedInGebruiker = new Gebruiker("sander", "sander");
             //stelGebruikerIn();
+            this.LoggedInGebruiker = null;
             Template = GetTemplate();
             
         }
