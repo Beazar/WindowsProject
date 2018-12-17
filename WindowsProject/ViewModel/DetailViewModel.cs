@@ -55,7 +55,8 @@ namespace WindowsProject.ViewModel
 
         public async void Abonneer()
         {
-            this.Mp.LoggedInGebruiker.Abonnementen.Add(this.DetailOnderneming);
+            this.Mp.LoggedInGebruiker.Abonnementen +=  (this.DetailOnderneming.OndernemingID) + ";" ;
+            this.Mp.LoggedInGebruiker.ListAbonnementen.Add(this.DetailOnderneming);
             HttpClient client = new HttpClient();
             Debug.WriteLine(this.Mp.LoggedInGebruiker.Gebruikerid);
             var json = await client.PutAsJsonAsync(new Uri("http://localhost:52974/api/gebruikers/"+this.Mp.LoggedInGebruiker.Gebruikerid),

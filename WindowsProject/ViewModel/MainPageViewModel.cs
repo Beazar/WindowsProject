@@ -53,7 +53,7 @@ namespace WindowsProject.ViewModel
 
         private void showAbonnementen()
         {
-            throw new NotImplementedException();
+            CurrentData = new AbonnementenViewModel(this);
         }
 
         private void showPromotie()

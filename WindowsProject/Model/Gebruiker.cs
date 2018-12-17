@@ -36,13 +36,22 @@ namespace WindowsProject.Model
             set { _wachtwoord = value; RaisePropertyChanged(); }
         }
 
-        private ICollection<Onderneming> _abonnementen;
+        private string _abonnementen;
 
-        public ICollection<Onderneming> Abonnementen
+        public string Abonnementen
         {
             get { return _abonnementen; }
             set { _abonnementen = value; RaisePropertyChanged(); }
         }
+
+        private List<Onderneming> _listAbonnementen;
+
+        public List<Onderneming> ListAbonnementen
+        {
+            get { return _listAbonnementen; }
+            set { _listAbonnementen = value; }
+        }
+
 
 
         protected void RaisePropertyChanged([CallerMemberName] string propertyName = "")
@@ -55,6 +64,7 @@ namespace WindowsProject.Model
         {
             this._gebruikersnaam = gebruikersnaam;
             this._wachtwoord = wachtwoord;
+            this._listAbonnementen = new List<Onderneming>();
         }
     }
 }

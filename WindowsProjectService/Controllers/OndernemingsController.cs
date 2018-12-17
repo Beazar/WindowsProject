@@ -23,11 +23,12 @@ namespace WindowsProjectService.Controllers
         }
 
         // GET: api/Ondernemings/5
-        [Route("ondernemings/{id}")]
+    //    [Route("ondernemings/{id}")]
         [ResponseType(typeof(Onderneming))]
         public IHttpActionResult GetOnderneming(int id)
         {
-            Onderneming onderneming = db.Ondernemings.First(user => user.OndernemingID == id);
+            //   Onderneming onderneming = db.Ondernemings.First(user => user.OndernemingID == id);
+            Onderneming onderneming = db.Ondernemings.Find(id);
             if (onderneming == null)
             {
                 return NotFound();

@@ -37,5 +37,8 @@
         <DataTemplate x:Key="PromotieImageViewModel">
             <view:PromotieImageView/>
         </DataTemplate>
+        <DataTemplate x:Key="AbonnementenViewModel">
+            <view:AbonnementenView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

@@ -65,6 +65,16 @@ namespace WindowsProject.ViewModel
             var jsonG = await client.GetStringAsync(new Uri("http://localhost:52974/api/gebruikers/1"));
             var gebr = JsonConvert.DeserializeObject<Gebruiker>(jsonG.Substring(1, jsonG.Length - 2));
             this.LoggedInGebruiker = gebr;
+          //  this.LoggedInGebruiker.
+            if(this.LoggedInGebruiker.Abonnementen != "" && this.LoggedInGebruiker.Abonnementen != null)
+            {
+               var idArray = this.LoggedInGebruiker.Abonnementen.Split(';');
+                for(int i = 0; i<idArray.Length-1; i++)
+                {
+                    var json2 = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/"+idArray[i]));
+                    this.LoggedInGebruiker.ListAbonnementen.Add(JsonConvert.DeserializeObject<Onderneming>(json2.Substring(1, json2.Length - 2)));
+                }
+            }
         }
 
         private DataTemplate GetTemplate()
