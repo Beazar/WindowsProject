@@ -46,5 +46,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Button Command="{Binding AbonneerCommand}" Content="Abonneer"></Button>
     </StackPanel>
 </UserControl>

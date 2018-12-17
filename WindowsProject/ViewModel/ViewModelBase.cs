@@ -56,10 +56,15 @@ namespace WindowsProject.ViewModel
 
         private async void stelGebruikerIn()
         {
+            
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/4"));
             var ond = JsonConvert.DeserializeObject<Onderneming>(json.Substring(1,json.Length-2));
             this.LoggedInOnderneming = ond;
+            
+            var jsonG = await client.GetStringAsync(new Uri("http://localhost:52974/api/gebruikers/1"));
+            var gebr = JsonConvert.DeserializeObject<Gebruiker>(jsonG.Substring(1, jsonG.Length - 2));
+            this.LoggedInGebruiker = gebr;
         }
 
         private DataTemplate GetTemplate()

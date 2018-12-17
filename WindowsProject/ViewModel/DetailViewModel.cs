@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
@@ -16,6 +17,16 @@ namespace WindowsProject.ViewModel
 {
     public class DetailViewModel: ViewModelBase
     {
+        public RelayCommand AbonneerCommand { get; set; }
+
+        private MainPageViewModel _mp;
+
+        public MainPageViewModel Mp
+        {
+            get { return _mp; }
+            set { _mp = value; }
+        }
+
         private Onderneming _detailonderneming;
 
         public Onderneming DetailOnderneming
@@ -34,10 +45,21 @@ namespace WindowsProject.ViewModel
 
 
 
-        public DetailViewModel(Onderneming detailOnderneming)
+        public DetailViewModel(Onderneming detailOnderneming, MainPageViewModel mp)
         {
             this.DetailOnderneming = detailOnderneming;
+            this.Mp = mp;
+            AbonneerCommand = new RelayCommand((a) => Abonneer());
             //Debug.WriteLine(this.LoggedInGebruiker.Gebruikersnaam);
+        }
+
+        public async void Abonneer()
+        {
+            this.Mp.LoggedInGebruiker.Abonnementen.Add(this.DetailOnderneming);
+            HttpClient client = new HttpClient();
+            Debug.WriteLine(this.Mp.LoggedInGebruiker.Gebruikerid);
+            var json = await client.PutAsJsonAsync(new Uri("http://localhost:52974/api/gebruikers/"+this.Mp.LoggedInGebruiker.Gebruikerid),
+                this.Mp.LoggedInGebruiker);
         }
 
         public async Task HandleSelectedPromotie()

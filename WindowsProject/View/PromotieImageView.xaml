@@ -9,7 +9,10 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
-        <Image Source="{Binding Promotie.Kortingsbon}" HorizontalAlignment="Stretch" Margin="0,0,0,0" MaxHeight="300" MaxWidth="700" VerticalAlignment="Stretch"></Image>
-    </Grid>
+    <StackPanel>
+        <Image Source="{Binding Promotie.Kortingsbon}" 
+               HorizontalAlignment="Stretch" Margin="0,0,0,0" 
+               MaxHeight="300" MaxWidth="700" VerticalAlignment="Stretch"></Image>
+        <Button Command="{Binding DownloadCommand,  Mode=TwoWay}" VerticalAlignment="Center">Download</Button>
+    </StackPanel>
 </Page>

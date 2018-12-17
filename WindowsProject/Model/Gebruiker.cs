@@ -36,6 +36,15 @@ namespace WindowsProject.Model
             set { _wachtwoord = value; RaisePropertyChanged(); }
         }
 
+        private ICollection<Onderneming> _abonnementen;
+
+        public ICollection<Onderneming> Abonnementen
+        {
+            get { return _abonnementen; }
+            set { _abonnementen = value; RaisePropertyChanged(); }
+        }
+
+
         protected void RaisePropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

@@ -49,8 +49,6 @@ namespace WindowsProject.ViewModel
             VoegPromotieToeCommand = new RelayCommand( _ => showPromotie());
             NaarAbonnementenCommand = new RelayCommand( _ => showAbonnementen());
 
-
-
         }
 
         private void showAbonnementen()

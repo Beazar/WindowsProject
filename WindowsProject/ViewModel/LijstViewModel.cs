@@ -35,7 +35,7 @@ namespace WindowsProject.ViewModel
         {
             Debug.Write(this.Template);
             // this.Template = new DetailViewModel(SelectedOnderneming);
-            Mp.CurrentData = new DetailViewModel(SelectedOnderneming);
+            Mp.CurrentData = new DetailViewModel(SelectedOnderneming, this.Mp);
             
         }
 
@@ -72,6 +72,7 @@ namespace WindowsProject.ViewModel
             loadDataCategorie(filter);
          //   SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
             ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));
+            this.Mp = mp;
             //this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen.Where(o => o.Categorie == filter));
         }
         
