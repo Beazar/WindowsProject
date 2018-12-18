@@ -11,6 +11,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <ScrollViewer>
         <StackPanel>
+            <StackPanel Background="{ThemeResource CustomAcrylicBackgroundBrush}" Height="75">
+                <TextBlock FontWeight="Bold" FontSize="19"  Padding="30" TextAlignment="Left" Text="MIJN EVENTS" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
+            </StackPanel>
             <StackPanel>
                 <ListView x:Name="lv" ItemsSource="{Binding Events}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">
                     <ListView.ItemTemplate>
@@ -20,14 +23,14 @@
                                 <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
                                 <TextBlock Text="{Binding StartDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
                                 <TextBlock Text="{Binding EindDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
-                            </StackPanel>
-                            <Button Content="Delete" Command="{Binding ElementName=lv ,Path=DataContext.DeleteCommand}"></Button>
+                            </StackPanel >
+                                <Button Content="Verwijder" Margin="20,0,0,0"  Command="{Binding ElementName=lv ,Path=DataContext.DeleteCommand}" ></Button>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackPanel>
-            <Button Command="{Binding ToevoegenCommand}" Content="Voeg een event toe">
+            <Button Command="{Binding ToevoegenCommand}" Margin="20,20,0,0" Content="Voeg een event toe">
                 
             </Button>
         </StackPanel>

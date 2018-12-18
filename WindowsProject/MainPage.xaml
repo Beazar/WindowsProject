@@ -27,7 +27,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Background="{ThemeResource CustomAcrylicTitelBackgroundBrush}">
+                <StackPanel Grid.Row="0" Background="{ThemeResource CustomAcrylicTitelBackgroundBrush}" Height="75">
                     <TextBlock FontWeight="Bold" FontSize="21" Padding="30" TextAlignment="Center" Text="Shop in Aalst" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
                 </StackPanel>
                 <StackPanel  Orientation="Vertical" Grid.Row="1">
@@ -93,7 +93,7 @@
                             <TextBlock Text="{Binding LoggedInOnderneming.Gebruikersnaam, Mode=TwoWay}" VerticalAlignment="Center" Padding="7"></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
+                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" >
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="AddFriend" HorizontalAlignment="Left"/>
                             <TextBlock Text="Account" VerticalAlignment="Center" Padding="7"></TextBlock>

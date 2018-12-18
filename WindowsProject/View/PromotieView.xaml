@@ -10,24 +10,26 @@
 
     <ScrollViewer>
         <StackPanel>
-
+            <StackPanel Background="{ThemeResource CustomAcrylicBackgroundBrush}" Height="75">
+            <TextBlock FontWeight="Bold" FontSize="19"  Padding="30" TextAlignment="Left" Text="MIJN PROMOTIES" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
+            </StackPanel>
             <StackPanel>
                 <ListView x:Name="lv" ItemsSource="{Binding Promoties}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedPromotie, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate x:Name="TripleLineDataTemplate">
                             <StackPanel Orientation="Horizontal">
-                            <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}" >
-                                <TextBlock Text="{Binding Naam}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
-                                <TextBlock Text="{Binding StartDatum}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
+                            <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}"  Width="250">
+                                    <TextBlock Text="{Binding Naam}" Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
+                                    <TextBlock Text="{Binding StartDatum}"  Style="{ThemeResource CaptionTextBlockStyle}" Margin="0,4,0,0"/>
                                 <TextBlock Text="{Binding EindDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
                             </StackPanel>
-                            <Button Content="Delete" Command="{Binding ElementName=lv ,Path=DataContext.DeleteCommand}"></Button>
+                            <Button Content="Verwijder" Margin="20,0,0,0" Command="{Binding ElementName=lv ,Path=DataContext.DeleteCommand}"></Button>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackPanel>
-            <Button Command="{Binding ToevoegenCommand}" Content="Voeg een promotie toe">
+            <Button Command="{Binding ToevoegenCommand}" Margin="20,20,0,0" Content="Voeg een promotie toe">
 
             </Button>
         </StackPanel>

@@ -12,13 +12,13 @@
 
     <ScrollViewer>
         <StackPanel>
-            <Grid>
+            <Grid Background="{ThemeResource CustomAcrylicBackgroundBrush}" Height="75">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" FontWeight="Bold" FontSize="19"  Padding="30" TextAlignment="Center" Text="{Binding Filter, Mode=TwoWay}" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
+                <TextBlock Grid.Column="0" FontWeight="Bold" FontSize="30" FontStyle="Italic"  Padding="30" TextAlignment="Center" Text="{Binding Filter, Mode=TwoWay}" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center"/>
                 <AutoSuggestBox Grid.Column="1" Margin="0,25,0,0" Padding="0,0,20,0" PlaceholderText="Search" 
                             QueryIcon="Find" Width="200" 
                             Text="{Binding Zoek, Mode=TwoWay}"
