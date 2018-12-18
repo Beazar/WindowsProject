@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.Data.Xml.Dom;
 using Windows.Networking.BackgroundTransfer;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using WindowsProject.Model;
 
@@ -74,11 +76,26 @@ namespace WindowsProject.ViewModel
 
             if (folder != null)
             {
-                StorageFile file = await folder.CreateFileAsync("NewImage.jpg", CreationCollisionOption.GenerateUniqueName);
+                StorageFile file = await folder.CreateFileAsync("Kortingsbon.jpg", CreationCollisionOption.GenerateUniqueName);
                 Uri downloadUrl = new Uri(Promotie.Kortingsbon); 
                 downloadOperation = backgroundDownloader.CreateDownload(downloadUrl, file);
                 cancellationToken = new CancellationTokenSource();
                 await downloadOperation.StartAsync().AsTask(cancellationToken.Token);
+
+                //create XML
+                var toastXml = new XmlDocument();
+                toastXml.LoadXml("<toast><visual><binding template='ToastGeneric'>" +
+                    "<text>Download</text><text>Uw kortingsbon is gedownload</text> " +
+                    "</binding></visual></toast>");
+
+
+                //build toast
+                var toast = new ToastNotification(toastXml);
+
+                //show toast
+
+                var notifier = ToastNotificationManager.CreateToastNotifier();
+                notifier.Show(toast);
             }
         }
 

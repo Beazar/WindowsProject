@@ -9,41 +9,57 @@
     VerticalAlignment="Stretch" 
     HorizontalAlignment="Stretch">
     <ScrollViewer>
-    <StackPanel HorizontalAlignment="Stretch" >
-        <Image Source="{Binding DetailOnderneming.Afbeelding}"  HorizontalAlignment="Stretch" Margin="0,0,0,0" MaxHeight="300" MaxWidth="700" VerticalAlignment="Stretch"/>
-        <StackPanel Background="IndianRed" BorderBrush="Black" BorderThickness="2">
-            <TextBlock Text="{Binding DetailOnderneming.Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0" TextAlignment="Center" />
-        </StackPanel>
-        <TextBlock Text="{Binding DetailOnderneming.Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0" TextAlignment="Center"/>
-        <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0" TextAlignment="Center">
+    <StackPanel HorizontalAlignment="Stretch"  >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
+        <Image Source="{Binding DetailOnderneming.Afbeelding}"  HorizontalAlignment="Stretch" Margin="0,0,0,0" MaxHeight="350" MaxWidth="1000" VerticalAlignment="Stretch"/>
+                <StackPanel HorizontalAlignment="Stretch" Padding="50,0,0,0">
+                    <TextBlock Text="{Binding DetailOnderneming.Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0" TextAlignment="Center" FontSize="40" HorizontalAlignment="Center"/>
+                    <TextBlock Text="{Binding DetailOnderneming.Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0" FontSize="25" TextAlignment="Center"/>
+                    <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0" TextAlignment="Center">
                 <Run Text="{Binding DetailOnderneming.Adres}"/>
                 <Run Text=","/>
                 <Run Text="{Binding DetailOnderneming.Postcode}"/>
                 <Run Text="{Binding DetailOnderneming.Plaats}"/>
-        </TextBlock>
-        <ScrollViewer Background="LightGray" MaxHeight="100">
-            <TextBlock Text="{Binding DetailOnderneming.Beschrijving}" TextAlignment="Center"/>
-        </ScrollViewer>
-        <TextBlock Text="PROMOTIES" TextAlignment="Center"/>
-        <ListView x:Name="promoties" ItemsSource="{Binding DetailOnderneming.Promoties}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedPromotie, Mode=TwoWay}" Background="LightGray" MinHeight="100">
+                    </TextBlock>
+                    <ScrollViewer MaxHeight="100" Margin="0,50,0,0">
+                        <TextBlock Text="{Binding DetailOnderneming.Beschrijving}" TextAlignment="Center"  />
+                    </ScrollViewer>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock Text="BEKIJK PROMOTIES" TextAlignment="Left" Padding="20,20,0,0" FontWeight="SemiBold"/>
+            <ListView x:Name="promoties" ItemsSource="{Binding DetailOnderneming.Promoties}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedPromotie, Mode=TwoWay}" MinHeight="100">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}" BorderThickness="1">
-                        <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
-                        <TextBlock Text="{Binding EindDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
-                    </StackPanel>
+                            <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
+                            <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0">
+                                <Run Text="Van: "/>
+                                <Run Text="{Binding StartDatum}"/>
+                                
+                            </TextBlock>
+                            <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0">
+                                <Run Text="Tot: "/>
+                                <Run Text="{Binding EindDatum}"/>
+                            </TextBlock>
+
+                        </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Text="EVENTS" TextAlignment="Center" />
-        <ListView x:Name="events" ItemsSource="{Binding DetailOnderneming.Events}" Background="LightGray" MinHeight="100">
+            <TextBlock Text="EVENTS" TextAlignment="Left" Padding="20,20,0,0" FontWeight="SemiBold"/>
+        <ListView x:Name="events" ItemsSource="{Binding DetailOnderneming.Events}" MinHeight="100">
             <ListView.ItemTemplate>
                 <DataTemplate x:Name="DoubleLineDataTemplate">
                     <StackPanel Height="84" Padding="20" AutomationProperties.Name="{Binding Naam}" BorderThickness="1">
                         <TextBlock Text="{Binding Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
-                        <TextBlock Text="{Binding StartDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
-                        <TextBlock Text="{Binding EindDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
-                    </StackPanel>
+                            <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0">
+                                <Run Text="Van: "/>
+                                <Run Text="{Binding StartDatum}"/>
+                            </TextBlock>
+                            <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0">
+                                <Run Text="Tot: "/>
+                                <Run Text="{Binding EindDatum}"/>
+                            </TextBlock>                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
