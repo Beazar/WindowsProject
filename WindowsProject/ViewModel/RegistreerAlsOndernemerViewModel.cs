@@ -159,7 +159,6 @@ namespace WindowsProject.ViewModel
         string previousInput = "";
         private async void Nummer_TextChanging()
         {
-            Debug.Write("previousInput aangeroepen");
             Regex r = new Regex("^[0-9]*$"); // This is the main part, can be altered to match any desired form or limitations
             Match m = r.Match(Ondernemingsnummer);
             if (m.Success)

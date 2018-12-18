@@ -6,7 +6,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
+using Windows.Data.Xml.Dom;
 using Windows.UI.Core;
+using Windows.UI.Notifications;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -73,6 +75,22 @@ namespace WindowsProject.ViewModel
             Debug.WriteLine(this.Mp.LoggedInGebruiker.Gebruikerid);
             var json = await client.PutAsJsonAsync(new Uri("http://localhost:52974/api/gebruikers/"+this.Mp.LoggedInGebruiker.Gebruikerid),
                 this.Mp.LoggedInGebruiker);
+
+            //create XML
+            var toastXml = new XmlDocument();
+            toastXml.LoadXml("<toast><visual><binding template='ToastGeneric'>" +
+                "<text>Abonneren</text><text>U bent geabonneerd op</text> "+
+                "<text>uw moeder</text></binding></visual></toast>");
+
+            //build toast
+            var toast = new ToastNotification(toastXml);
+
+            //show toast
+            var notifier = ToastNotificationManager.CreateToastNotifier("WindowsProject");
+            notifier.Show(toast);
+
+
+
             this.Mp.CurrentData = new DetailViewModel(this.DetailOnderneming, this.Mp);
         }
 

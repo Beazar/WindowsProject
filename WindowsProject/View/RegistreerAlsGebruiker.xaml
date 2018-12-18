@@ -16,14 +16,14 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Vertical" Grid.Row="0">
-            <TextBlock Text="Registreer als gebruiker" Margin="25,7,25,7"/>
-            <TextBlock Text="Gebruikersnaam:" Margin="25,7,25,7"/>
-            <TextBox PlaceholderText="vb. Jonas" Margin="25,7,25,7" Text="{Binding Gebruikersnaam, Mode=TwoWay}"/>
-            <PasswordBox Width="300" Header="Wachtwoord" Password="{Binding Wachtwoord,  Mode=TwoWay}" PasswordChar="•" Name="txtPassword"/>
-            <PasswordBox Width="300" Header="Bevestig uw wachtwoord" PlaceholderText="" PasswordChar="•" />
+            <TextBlock Text="Registreer als gebruiker" Margin="25,7,25,30" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+            <TextBlock Text="Gebruikersnaam:" Margin="25,7,25,7" HorizontalAlignment="Center"/>
+            <TextBox PlaceholderText="vb. Jonas" Width="300" Margin="25,7,25,7" Text="{Binding Gebruikersnaam, Mode=TwoWay}"/>
+            <PasswordBox Width="300" Margin="25,7,25,7" Header="Wachtwoord" Password="{Binding Wachtwoord,  Mode=TwoWay}" PasswordChar="•" Name="txtPassword"/>
+            <PasswordBox Width="300" Margin="25,7,25,7" Header="Bevestig uw wachtwoord" PlaceholderText="" PasswordChar="•" />
             
             
         </StackPanel>
-        <Button Content="Doorgaan" Width="200" Grid.Row="1" HorizontalAlignment="Right" Command="{Binding AddGebruikerCommand,  Mode=TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" VerticalAlignment="Bottom" Margin="0,0,15,15"/>
+        <Button Content="Doorgaan" Width="200" Grid.Row="1" HorizontalAlignment="Center" Command="{Binding AddGebruikerCommand,  Mode=TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" />
     </Grid>
 </UserControl>
