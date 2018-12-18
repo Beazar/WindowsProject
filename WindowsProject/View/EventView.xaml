@@ -11,7 +11,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <ScrollViewer>
         <StackPanel>
-            <StackPanel Background="{ThemeResource CustomAcrylicBackgroundBrush}" Height="75">
+            <StackPanel Height="75">
                 <TextBlock FontWeight="Bold" FontSize="19"  Padding="30" TextAlignment="Left" Text="MIJN EVENTS" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
             </StackPanel>
             <StackPanel>
@@ -24,7 +24,7 @@
                                 <TextBlock Text="{Binding StartDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
                                 <TextBlock Text="{Binding EindDatum}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
                             </StackPanel >
-                                <Button Content="Verwijder" Margin="20,0,0,0"  Command="{Binding ElementName=lv ,Path=DataContext.DeleteCommand}" ></Button>
+                                <Button Content="Verwijder" Margin="20,0,0,0"  Command="{Binding ElementName=lv ,Path=DataContext.DeleteCommand}"  CommandParameter="{Binding EventID}" ></Button>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

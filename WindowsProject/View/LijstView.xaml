@@ -12,7 +12,7 @@
 
     <ScrollViewer>
         <StackPanel>
-            <Grid Background="{ThemeResource CustomAcrylicBackgroundBrush}" Height="75">
+            <Grid   Height="75">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>

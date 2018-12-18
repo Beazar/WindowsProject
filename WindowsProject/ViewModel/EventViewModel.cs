@@ -39,15 +39,16 @@ namespace WindowsProject.ViewModel
             this.Mp = mp;
             this.Events = new ObservableCollection<Event>(mp.LoggedInOnderneming.Events);
             ToevoegenCommand = new RelayCommand(_ => showToevoegen());
-            DeleteCommand = new RelayCommand(_ => DeleteEvent());
+            DeleteCommand = new RelayCommand(async id => await DeleteEvent(id));
 
         }
 
-        private async void DeleteEvent()
+        private async Task DeleteEvent(object id)
         {
-            this.Mp.LoggedInOnderneming.Events.Remove(this.SelectedEvent);
+            this.Mp.LoggedInOnderneming.Events = this.Mp.LoggedInOnderneming.Events.Where(e => e.EventID.ToString() != id.ToString()).ToList();
+            //this.Mp.LoggedInOnderneming.Events.Remove(this.SelectedEvent);
             HttpClient client = new HttpClient();
-            await client.DeleteAsync(new Uri("http://localhost:52974/api/events/" + this.SelectedEvent.EventID));
+            await client.DeleteAsync(new Uri("http://localhost:52974/api/events/" + id.ToString()));
             this.Events = new ObservableCollection<Event>(this.Mp.LoggedInOnderneming.Events);
         }
 

@@ -39,15 +39,17 @@ namespace WindowsProject.ViewModel
             this.Mp = mp;
             this.Promoties = new ObservableCollection<Promotie>(mp.LoggedInOnderneming.Promoties);
             ToevoegenCommand = new RelayCommand(_ => showToevoegen());
-            DeleteCommand = new RelayCommand(_ => DeletePromotie());
+            DeleteCommand = new RelayCommand(async id => await DeletePromotie(id));
         }
 
 
-        private async void DeletePromotie()
+        private async Task DeletePromotie(object id)
         {
-            Mp.LoggedInOnderneming.Promoties.Remove(this.SelectedPromotie);
+            this.Mp.LoggedInOnderneming.Promoties = this.Mp.LoggedInOnderneming.Promoties.Where(e => e.PromotieID.ToString() != id.ToString()).ToList();
+
+           // Mp.LoggedInOnderneming.Promoties.Remove(this.SelectedPromotie);
             HttpClient client = new HttpClient();
-            await client.DeleteAsync(new Uri("http://localhost:52974/api/promoties/" + this.SelectedPromotie.PromotieID));
+            await client.DeleteAsync(new Uri("http://localhost:52974/api/promoties/" + id.ToString()));
             this.Promoties = new ObservableCollection<Promotie>(this.Mp.LoggedInOnderneming.Promoties);
         }
 

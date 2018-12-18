@@ -56,7 +56,8 @@ namespace WindowsProject.ViewModel
             var jsonO = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/" + id.ToString()));
             SelectedOnderneming = JsonConvert.DeserializeObject<Onderneming>(jsonO);
             //this.Mp.LoggedInGebruiker.ListAbonnementen.RemoveAll( ond => ond == this.SelectedOnderneming);
-            this.Mp.LoggedInGebruiker.ListAbonnementen.Where(o => o.OndernemingID.ToString() == id.ToString());
+            //this.Mp.LoggedInGebruiker.ListAbonnementen.Where(o => o.OndernemingID.ToString() == id.ToString());
+            this.Mp.LoggedInGebruiker.ListAbonnementen = this.Mp.LoggedInGebruiker.ListAbonnementen.Where(o => o.OndernemingID.ToString() != id.ToString()).ToList();
             string nieuweLijst = "";
             var AboArray = this.Mp.LoggedInGebruiker.Abonnementen.Split(";");
             for(int i = 0; i < AboArray.Length - 1; i++)
