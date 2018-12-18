@@ -79,14 +79,14 @@ namespace WindowsProject.ViewModel
             //create XML
             var toastXml = new XmlDocument();
             toastXml.LoadXml("<toast><visual><binding template='ToastGeneric'>" +
-                "<text>Abonneren</text><text>U bent geabonneerd op</text> "+
-                "<text>uw moeder</text></binding></visual></toast>");
+                "<text>Abonneren</text><text>U bent geabonneerd op</text> " +
+                "<text>" + this.DetailOnderneming.Naam + "</text></binding></visual></toast>");
 
             //build toast
             var toast = new ToastNotification(toastXml);
 
             //show toast
-            var notifier = ToastNotificationManager.CreateToastNotifier("WindowsProject");
+            var notifier = ToastNotificationManager.CreateToastNotifier();
             notifier.Show(toast);
 
 

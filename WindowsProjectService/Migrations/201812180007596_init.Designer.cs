@@ -13,7 +13,7 @@ namespace WindowsProjectService.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201812171442103_init"; }
+            get { return "201812180007596_init"; }
         }
         
         string IMigrationMetadata.Source
