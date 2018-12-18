@@ -8,6 +8,7 @@
     mc:Ignorable="d" 
     VerticalAlignment="Stretch" 
     HorizontalAlignment="Stretch">
+    <ScrollViewer>
     <StackPanel HorizontalAlignment="Stretch" >
         <Image Source="{Binding DetailOnderneming.Afbeelding}"  HorizontalAlignment="Stretch" Margin="0,0,0,0" MaxHeight="300" MaxWidth="700" VerticalAlignment="Stretch"/>
         <StackPanel Background="IndianRed" BorderBrush="Black" BorderThickness="2">
@@ -49,4 +50,5 @@
 
         <Button x:Name="Btn" Command="{Binding AbonneerCommand}" Content="Abonneer" Visibility="{Binding IsVisible}"></Button>
     </StackPanel>
+    </ScrollViewer>
 </UserControl>

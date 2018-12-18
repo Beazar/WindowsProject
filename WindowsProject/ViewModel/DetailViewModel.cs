@@ -82,12 +82,14 @@ namespace WindowsProject.ViewModel
                 "<text>Abonneren</text><text>U bent geabonneerd op</text> "+
                 "<text>"+ this.DetailOnderneming.Naam +"</text></binding></visual></toast>");
 
+
             //build toast
             var toast = new ToastNotification(toastXml);
 
             //show toast
-            ToastNotificationManager.CreateToastNotifier().Show(toast); 
-            
+
+            var notifier = ToastNotificationManager.CreateToastNotifier();
+            notifier.Show(toast);
 
 
 
