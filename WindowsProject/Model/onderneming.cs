@@ -139,6 +139,8 @@ namespace WindowsProject.Model
             _afbeelding = afbeelding;
             _wachtwoord = wachtwoord;
             _gebruikersnaam = gebruikersnaam;
+            Promoties = new List<Promotie>();
+            Events = new List<Event>();
         }
 
         public Onderneming()
