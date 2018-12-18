@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -36,18 +38,25 @@ namespace WindowsProject.ViewModel
         {
             this.Mp = mp;
             this.ListAbonnementen = new ObservableCollection<Onderneming>(this.Mp.LoggedInGebruiker.ListAbonnementen);
-            DeleteCommand = new RelayCommand(_ => DeleteAbonnement());
-            BekijkCommand = new RelayCommand(_ => BekijkOnderneming());
+            DeleteCommand = new RelayCommand(async Id => await DeleteAbonnement(Id));
+            BekijkCommand = new RelayCommand(async Id => await BekijkOnderneming(Id));
         }
 
-        public void BekijkOnderneming()
+        public async Task BekijkOnderneming(object id)
         {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/" + id.ToString()));
+            SelectedOnderneming = JsonConvert.DeserializeObject<Onderneming>(json);
             this.Mp.CurrentData = new DetailViewModel(SelectedOnderneming,this.Mp);
         }
 
-        public async void DeleteAbonnement()
+        public async Task DeleteAbonnement(object id)
         {
-            this.Mp.LoggedInGebruiker.ListAbonnementen.RemoveAll( ond => ond == this.SelectedOnderneming);
+            HttpClient client = new HttpClient();
+            var jsonO = await client.GetStringAsync(new Uri("http://localhost:52974/api/ondernemings/" + id.ToString()));
+            SelectedOnderneming = JsonConvert.DeserializeObject<Onderneming>(jsonO);
+            //this.Mp.LoggedInGebruiker.ListAbonnementen.RemoveAll( ond => ond == this.SelectedOnderneming);
+            this.Mp.LoggedInGebruiker.ListAbonnementen.Where(o => o.OndernemingID.ToString() == id.ToString());
             string nieuweLijst = "";
             var AboArray = this.Mp.LoggedInGebruiker.Abonnementen.Split(";");
             for(int i = 0; i < AboArray.Length - 1; i++)
@@ -59,7 +68,7 @@ namespace WindowsProject.ViewModel
                 }
             }
             this.Mp.LoggedInGebruiker.Abonnementen = nieuweLijst;
-            HttpClient client = new HttpClient();
+            client = new HttpClient();
             var json = await client.PutAsJsonAsync(new Uri("http://localhost:52974/api/gebruikers/" + this.Mp.LoggedInGebruiker.Gebruikerid),
                 this.Mp.LoggedInGebruiker);
             this.ListAbonnementen = new ObservableCollection<Onderneming>(this.Mp.LoggedInGebruiker.ListAbonnementen);
