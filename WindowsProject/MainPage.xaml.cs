@@ -27,6 +27,7 @@ namespace WindowsProject
         public MainPage()
         {
             this.InitializeComponent();
+            
         }
         
             

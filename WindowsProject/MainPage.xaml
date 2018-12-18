@@ -9,19 +9,27 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <AcrylicBrush x:Key="CustomAcrylicTitelBackgroundBrush" BackgroundSource="HostBackdrop" TintOpacity="0.9" TintColor="#FF888888" FallbackColor="#FF888888"/>
+            <AcrylicBrush x:Key="CustomAcrylicBackgroundBrush" BackgroundSource="HostBackdrop" TintOpacity="0.9" TintColor="#FFAAAAAA" FallbackColor="#FFAAAAAA"/>
+        </ResourceDictionary>
+    </Page.Resources>
     
     <Page.DataContext>
         <vm:MainPageViewModel/>
     </Page.DataContext>
-    <SplitView DisplayMode="CompactInline" IsPaneOpen="true" OpenPaneLength="296" CompactPaneLength="36">
+    <SplitView DisplayMode="CompactInline" IsPaneOpen="true" OpenPaneLength="296" CompactPaneLength="36" PaneBackground="Transparent">
         <SplitView.Pane>
-            <Grid>
+            <Grid Background="{ThemeResource CustomAcrylicBackgroundBrush}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock Padding="30" TextAlignment="Center" Text="Shop in Aalst" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
+                <StackPanel Grid.Row="0" Background="{ThemeResource CustomAcrylicTitelBackgroundBrush}">
+                    <TextBlock FontWeight="Bold" FontSize="21" Padding="30" TextAlignment="Center" Text="Shop in Aalst" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
+                </StackPanel>
                 <StackPanel  Orientation="Vertical" Grid.Row="1">
                     <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Command="{Binding ToonAlleOndernemingenCommand}">
                         <StackPanel Orientation="Horizontal">
@@ -132,12 +140,6 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                    </Button>
-                    <Button Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Setting" HorizontalAlignment="Left"/>
-                            <TextBlock Text="Settings" VerticalAlignment="Center" Padding="7"></TextBlock>
-                        </StackPanel>
                     </Button>
                 </StackPanel>
             </Grid>

@@ -57,11 +57,20 @@ namespace WindowsProject.ViewModel
             set { _zoek = value;  ZoekOnderneming(_zoek); RaisePropertyChanged(); }
         }
 
+        private string _filter;
+
+        public string Filter
+        {
+            get { return _filter; }
+            set { _filter = value; RaisePropertyChanged(); }
+        }
+
 
         public LijstViewModel(MainPageViewModel mp)
         {
             // DummyDataSource.loadData();
             //this.Ondernemingen = new ObservableCollection<Onderneming>(DummyDataSource.Ondernemingen);
+            Filter = "Alles";
             loadData();
          //   SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
             ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));
@@ -78,6 +87,7 @@ namespace WindowsProject.ViewModel
             {
                 loadDataCategorie(filter);
             }
+            Filter = filter;
             //   SaveOndernemingCommand = new RelayCommand((p) => SaveOnderneming(p));
             ZoekCommand = new RelayCommand((p) => ZoekOnderneming(Zoek));
             this.Mp = mp;

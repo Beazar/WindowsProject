@@ -12,14 +12,52 @@
 
     <ScrollViewer>
         <StackPanel>
-            <AutoSuggestBox PlaceholderText="Search" 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" FontWeight="Bold" FontSize="19"  Padding="30" TextAlignment="Center" Text="{Binding Filter, Mode=TwoWay}" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
+                <AutoSuggestBox Grid.Column="1" Margin="0,25,0,0" Padding="0,0,20,0" PlaceholderText="Search" 
                             QueryIcon="Find" Width="200" 
                             Text="{Binding Zoek, Mode=TwoWay}"
                             TextChanged="AutoSuggestBox_TextChanged"
-                            Padding="0,0,20,0"/>
+                           />
+            </Grid>
 
             <StackPanel>
-                <ListView x:Name="lv" ItemsSource="{Binding Ondernemingen}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedOnderneming, Mode=TwoWay}">
+                <GridView x:Name="lv" ItemsSource="{Binding Ondernemingen}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedOnderneming, Mode=TwoWay}" Grid.Column="1">
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:Name="TripleLineDataTemplate">
+                            <StackPanel Orientation="Vertical" Margin="10" Padding="10">
+                                <Image Source="{Binding Afbeelding}" Width="250" Height="250"></Image>
+                                <StackPanel MinHeight="100" Padding="20" AutomationProperties.Name="{Binding Naam}" >
+                                    <TextBlock Text="{Binding Naam}" TextAlignment="Center"  Style="{ThemeResource BaseTextBlockStyle}"/>
+                                    <TextBlock Text="{Binding Categorie}" TextAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
+                                    <TextBlock Text="{Binding Adres}" TextAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".6" Margin="0,4,0,0"/>
+                                    <TextBlock Text="Beschrijving" FontSize="14" FontWeight="SemiBold" TextAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
+                                    <TextBlock Text="{Binding Beschrijving}" TextAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
+                                </StackPanel>
+                                
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="50">
+                            </ItemsWrapGrid>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="Margin" Value="15,15,15,15"/>
+                            <Setter Property="BorderBrush" Value="#FFAAAAAA"/>
+                            <Setter Property="BorderThickness" Value="2"/>
+                        </Style>
+                    </GridView.ItemContainerStyle>
+                </GridView>
+                <!--<ListView x:Name="lv" ItemsSource="{Binding Ondernemingen}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedOnderneming, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate x:Name="TripleLineDataTemplate">
                             <StackPanel Orientation="Horizontal">
@@ -32,7 +70,7 @@
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                </ListView>-->
             </StackPanel>
             
         </StackPanel>
