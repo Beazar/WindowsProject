@@ -14,3 +14,9 @@ In de Package Manager Console:
 Bij Solution properties, kies voor multiple startup projects,
 WindowsProject -> Start
 WindowsProjectService -> Start Without Debugging
+
+2e upload:
+bugfix: account bekijken na registratie had een probleem door initialisatie van een list die ontbrak
+github:
+https://github.com/Beazar/WindowsProject
+commits van anthony en Sander grotendeels samen gebeurd
