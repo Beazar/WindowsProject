@@ -11,7 +11,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <ScrollViewer>
         <StackPanel>
-            <StackPanel Height="75">
+            <StackPanel Height="75" Background="#FFAAAAAA">
                 <TextBlock FontWeight="Bold" FontSize="19"  Padding="30" TextAlignment="Left" Text="MIJN EVENTS" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
             </StackPanel>
             <StackPanel>

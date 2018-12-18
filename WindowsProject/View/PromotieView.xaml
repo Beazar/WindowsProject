@@ -10,7 +10,7 @@
 
     <ScrollViewer>
         <StackPanel>
-            <StackPanel  Height="75">
+            <StackPanel Background="#FFAAAAAA" Height="75">
             <TextBlock FontWeight="Bold" FontSize="19"  Padding="30" TextAlignment="Left" Text="MIJN PROMOTIES" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
             </StackPanel>
             <StackPanel>

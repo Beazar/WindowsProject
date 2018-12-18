@@ -12,7 +12,7 @@
 
     <ScrollViewer>
         <StackPanel>
-            <Grid   Height="75">
+            <Grid  Background="#FFAAAAAA" Height="75">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>

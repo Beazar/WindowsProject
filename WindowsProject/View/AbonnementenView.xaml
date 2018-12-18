@@ -10,6 +10,10 @@
     d:DesignWidth="400">
 
     <StackPanel>
+        <StackPanel Background="#FFAAAAAA" Height="75">
+            <TextBlock FontWeight="Bold" FontSize="19"  Padding="30" TextAlignment="Left" Text="MIJN ABONNEMENTEN" x:Name="PaneHeader" Style="{StaticResource BaseTextBlockStyle}"/>
+        </StackPanel>
+
         <ListView x:Name="lv" ItemsSource="{Binding ListAbonnementen}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedOnderneming, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate x:Name="TripleLineDataTemplate">

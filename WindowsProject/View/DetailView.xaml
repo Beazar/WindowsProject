@@ -10,7 +10,7 @@
     HorizontalAlignment="Stretch">
     <ScrollViewer>
         <StackPanel>
-            <StackPanel  Height="75"></StackPanel>
+            <StackPanel Background="#FFAAAAAA" Height="75"></StackPanel>
         <StackPanel HorizontalAlignment="Stretch"  >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
         <Image Source="{Binding DetailOnderneming.Afbeelding}"  HorizontalAlignment="Stretch" Margin="0,0,0,0" MaxHeight="350" Width="450" VerticalAlignment="Stretch"/>
