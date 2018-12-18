@@ -11,7 +11,7 @@
     <ScrollViewer>
     <StackPanel HorizontalAlignment="Stretch"  >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
-        <Image Source="{Binding DetailOnderneming.Afbeelding}"  HorizontalAlignment="Stretch" Margin="0,0,0,0" MaxHeight="350" MaxWidth="1000" VerticalAlignment="Stretch"/>
+        <Image Source="{Binding DetailOnderneming.Afbeelding}"  HorizontalAlignment="Stretch" Margin="0,0,0,0" MaxHeight="350" Width="450" VerticalAlignment="Stretch"/>
                 <StackPanel HorizontalAlignment="Stretch" Padding="50,0,0,0">
                     <TextBlock Text="{Binding DetailOnderneming.Naam}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0" TextAlignment="Center" FontSize="40" HorizontalAlignment="Center"/>
                     <TextBlock Text="{Binding DetailOnderneming.Categorie}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0" FontSize="25" TextAlignment="Center"/>

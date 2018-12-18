@@ -31,7 +31,7 @@
                     <GridView.ItemTemplate>
                         <DataTemplate x:Name="TripleLineDataTemplate">
                             <StackPanel Orientation="Vertical" Margin="10" Padding="10">
-                                <Image Source="{Binding Afbeelding}" Width="250" Height="250"></Image>
+                                <Image Source="{Binding Afbeelding}" Width="200" Height="200"></Image>
                                 <StackPanel MinHeight="100" Padding="20" AutomationProperties.Name="{Binding Naam}" >
                                     <TextBlock Text="{Binding Naam}" TextAlignment="Center"  Style="{ThemeResource BaseTextBlockStyle}"/>
                                     <TextBlock Text="{Binding Categorie}" TextAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
@@ -39,7 +39,6 @@
                                     <TextBlock Text="Beschrijving" FontSize="14" FontWeight="SemiBold" TextAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
                                     <TextBlock Text="{Binding Beschrijving}" TextAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}" Opacity=".8" Margin="0,4,0,0"/>
                                 </StackPanel>
-                                
                             </StackPanel>
                         </DataTemplate>
                     </GridView.ItemTemplate>
